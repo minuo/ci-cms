@@ -11,7 +11,7 @@ class Pages extends CI_Controller {
 
     public function index()
     {
-        $this->slice('pages.index');
+        $this->slice->view('pages.index');
     }
 
 }
