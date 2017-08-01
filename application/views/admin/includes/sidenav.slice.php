@@ -1,5 +1,6 @@
 @php
     // Get all unread and pending comments and messages
+    // TODO : This needs to be reworked
     $this->load->model('comments_model');
     $this->load->model('messages_model');
     $pending = $this->comments_model->get_pending();
