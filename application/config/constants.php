@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 define('APPLICATION_NAME', 'CI-CMS');
 define('APPLICATION_OWNER', 'Michael A. Kranker');
-define('APPLICATION_DEV', 'Alt_K SOftware Solutions');
+define('APPLICATION_DEV', 'Alt_K Software Solutions');
 define('APPLICATION_DEV_URL', 'https://www.altksoftware.com/');
 define('BUILD', '0.0.1');
 
