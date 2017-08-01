@@ -20,7 +20,7 @@ class Auth extends CI_Controller {
         $result = $this->auth_model->auth();
         if($result)
         {
-            redirect('/dashboard', 'location');
+            redirect('/ci-admin/dashboard', 'location');
         } else {            
             redirect('/auth/login', 'location');
         }
