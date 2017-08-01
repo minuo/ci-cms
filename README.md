@@ -12,7 +12,7 @@ If you find an issue, let us know [here](https://gitlab.com/mkhimself/ci-cms/iss
 
 There are various ways you can contribute:
 
-1. Raise an [Issue](https://gitlab.com/mkhimself/ci-cms/issues) on GitHub
+1. Raise an [Issue](https://gitlab.com/mkhimself/ci-cms/issues) on Gitlab
 2. Send us a Pull Request with your bug fixes and/or new features
 
 \* This is a work in progress applicaton and is not ready for full release. If you would like to contribute 
