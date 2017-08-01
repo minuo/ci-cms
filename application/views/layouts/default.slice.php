@@ -113,8 +113,7 @@
         <!--Copyright-->
         <div class="footer-copyright">
             <div class="container-fluid">
-                © {{ date('Y') }} <a href="http://www.MDBootstrap.com"> MDBootstrap.com </a>
-
+                © {{ date('Y') }} <a href="{{ APPLICATION_DEV_URL }}"> {{ APPLICATION_DEV }} </a>
             </div>
         </div>
         <!--/.Copyright-->
