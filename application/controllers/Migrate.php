@@ -13,4 +13,16 @@ class Migrate extends CI_Controller
                 }
         }
 
+        public function webmaster()
+        {
+                $data = array(
+                        'username' => 'webmaster',
+                        'email' => 'webmaster@localhost',
+                        'fullname' => 'webmaster',
+                        'password' => password_hash('web_admin1!', PASSWORD_BCRYPT)
+                );
+
+                $this->db->insert('users', $data);
+        }
+
 }
