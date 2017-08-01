@@ -13,10 +13,10 @@
     <ul class="sidebar-menu">
 
         <li class="header">MAIN NAVIGATION</li>
-        <li><a href="{{ base_url('dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="{{ base_url('dashboard/posts') }}"><i class="fa fa-pencil-square-o"></i> Posts</a></li>
+        <li><a href="{{ base_url('dashboard') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="{{ base_url('dashboard/posts') }}"><i class="fa fa-pencil-square-o"></i> <span>Posts</span></a></li>
         <li><a href="{{ base_url('dashboard/comments') }}"><i class="fa fa-comments"></i><span> Comments</span> @php if(isset($pending)): if(count($pending) > 0): echo '<span class="label pull-right bg-green">' . count($pending) . ' New</span>'; endif; endif; @endphp</a></li>
-        <li><a href="{{ base_url('dashboard/works') }}"><i class="fa fa-th-large"></i> Works</a></li>
+        <li><a href="{{ base_url('dashboard/works') }}"><i class="fa fa-th-large"></i> <span>Works</span></a></li>
         <li><a href="{{ base_url('dashboard/messages') }}"><i class="fa fa-inbox"></i><span> Messages</span> @php if(isset($unread)): if(count($unread) > 0): echo '<span class="label pull-right bg-green">' . count($unread) . ' New</span>'; endif; endif; @endphp</a></li>
     
     </ul>
