@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Login | MichaelKranker.com</title>
+  <title>Login | {{ APPLICATION_NAME }}</title>
 
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -24,21 +24,11 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
   <script src='https://www.google.com/recaptcha/api.js'></script>
-  <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-89795857-1', 'auto');
-      ga('send', 'pageview');
-
-   </script>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="{{ base_url() }}"><b>MichaelKranker</b>.com</a>
+    <a href="{{ base_url() }}"><b>{{ APPLICATION_NAME }}</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -54,9 +44,6 @@
         <input type="password" name="password" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
-      <div class="form-group has-feedback">
-          <div class="g-recaptcha" data-sitekey="6Lc-QisUAAAAAMxeRO0ilyVb2nDfaETwmIczADux"></div>
-        </div>
       <div class="row">        
         <div class="col-xs-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
