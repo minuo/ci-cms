@@ -31,7 +31,7 @@ class Roles extends CI_Controller {
         $result = $this->usertypes_model->create();
 
         if($result == true) {
-            $this->session->$this->session->set_flashdata('success', 'Role created successfully!');
+            $this->session->set_flashdata('success', 'Role created successfully!');
             
             redirect(base_url('ci-admin/roles')); 
         } else {
@@ -52,7 +52,7 @@ class Roles extends CI_Controller {
         $result = $this->usertypes_model->update($id);
 
         if($result == true) {
-            $this->session->$this->session->set_flashdata('success', 'Role updated successfully!');
+            $this->session->set_flashdata('success', 'Role updated successfully!');
             
             redirect(base_url('ci-admin/roles')); 
         } else {
