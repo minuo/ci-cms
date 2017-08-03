@@ -28,6 +28,20 @@ class Roles extends CI_Controller {
 
     public function store()
     {
-        redirect(base_url('ci-admin/roles'));   
+        $result = $this->usertypes_model->create();
+
+        if($result == true) {
+            $this->session->$this->session->set_flashdata('success', 'Role created successfully!');
+            
+            redirect(base_url('ci-admin/roles')); 
+        } else {
+            redirect(base_url('ci-admin/roles/create')); 
+        }
+          
+    }
+
+    public function edit($id)
+    {
+        
     }
 }

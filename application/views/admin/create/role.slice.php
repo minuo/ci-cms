@@ -32,21 +32,25 @@
 
                     <div class="col-md-6 col-md-offset-3">
                         <div class="form-group">
-                            <label for="usertype_name" class="control-label">Role Name</label>                       
-                            <input type="text" name="usertype_name" class="form-control" id="" placeholder="Name">
+                            <label for="type_name" class="control-label">Role Name</label>                       
+                            <input type="text" name="type_name" class="form-control" id="" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="type_description" class="control-label">Role Description</label>                       
+                            <input type="text" name="type_description" class="form-control" id="" placeholder="Short Description">
                         </div>
 
                         <!-- User types permissions -->
                         <div class="form-group">                            
                             <label>
-                                <input name="create_usertypes" type="checkbox" class="flat-red">
+                                <input name="create_usertypes" type="checkbox" value="1" class="flat-red">
                                 Create Roles
                             </label>
                             <small> (Add new user roles and assign permissions)</small>
                         </div> 
                         <div class="form-group">                            
                             <label>
-                                <input name="delete_usertypes" type="checkbox" class="flat-red">
+                                <input name="delete_usertypes" type="checkbox" value="1" class="flat-red">
                                 Delete Roles
                             </label>
                             <small> (Delete existing roles entirely)</small>
@@ -56,21 +60,21 @@
                         <!-- User permissions -->
                         <div class="form-group">                            
                             <label>
-                                <input name="create_users" type="checkbox" class="flat-red">
+                                <input name="create_users" type="checkbox" value="1" class="flat-red">
                                 Create Users
                             </label>
                             <small> (Add new users and assign roles)</small>
                         </div>
                         <div class="form-group">                            
                             <label>
-                                <input name="edit_users" type="checkbox" class="flat-red">
+                                <input name="edit_users" type="checkbox" value="1" class="flat-red">
                                 Edit Users
                             </label>
                             <small> (Edit existing users, cannot assign roles)</small>
                         </div>
                         <div class="form-group">                            
                             <label>
-                                <input name="delete_users" type="checkbox" class="flat-red">
+                                <input name="delete_users" type="checkbox" value="1" class="flat-red">
                                 Delete Users
                             </label>
                             <small> (Delete existing users entirely)</small>
@@ -79,21 +83,21 @@
                         <!-- posts permissions -->
                         <div class="form-group">                            
                             <label>
-                                <input name="create_posts" type="checkbox" class="flat-red">
+                                <input name="create_posts" type="checkbox" value="1" class="flat-red">
                                 Create Posts
                             </label>
                             <small> (Add new posts)</small>
                         </div>
                         <div class="form-group">                            
                             <label>
-                                <input name="edit_posts" type="checkbox" class="flat-red">
+                                <input name="edit_posts" type="checkbox" value="1" class="flat-red">
                                 Edit Posts
                             </label>
                             <small> (Edit existing posts, cannot create new posts)</small>
                         </div>
                         <div class="form-group">                            
                             <label>
-                                <input name="delete_posts" type="checkbox" class="flat-red">
+                                <input name="delete_posts" type="checkbox" value="1" class="flat-red">
                                 Delete Posts
                             </label>
                             <small> (Delete existing posts entirely)</small>
@@ -102,7 +106,7 @@
                         <!-- upload file permissions -->
                         <div class="form-group">                            
                             <label>
-                                <input name="upload_files" type="checkbox" class="flat-red">
+                                <input name="upload_files" type="checkbox" value="1" class="flat-red">
                                 Upload Media
                             </label>
                             <small> (Add images and files to media library)</small>
@@ -111,21 +115,21 @@
                         <!-- pages permissions -->
                         <div class="form-group">                            
                             <label>
-                                <input name="create_pages" type="checkbox" class="flat-red">
+                                <input name="create_pages" type="checkbox" value="1" class="flat-red">
                                 Create Pages
                             </label>
                             <small> (Add new pages)</small>
                         </div>
                         <div class="form-group">                            
                             <label>
-                                <input name="edit_pages" type="checkbox" class="flat-red">
+                                <input name="edit_pages" type="checkbox" value="1" class="flat-red">
                                 Edit Pages
                             </label>
                             <small> (Edit existing pages, cannot create new pages)</small>
                         </div>
                         <div class="form-group">                            
                             <label>
-                                <input name="delete_pages" type="checkbox" class="flat-red">
+                                <input name="delete_pages" type="checkbox" value="1" class="flat-red">
                                 Delete Pages
                             </label>
                             <small> (Delete existing pages entirely)</small>
@@ -134,28 +138,28 @@
                         <!-- misc permissions -->
                         <div class="form-group">                            
                             <label>
-                                <input name="manage_categories" type="checkbox" class="flat-red">
+                                <input name="manage_categories" type="checkbox" value="1" class="flat-red">
                                 Manage Categories
                             </label>
                             <small> (Add, edit, and delete categories)</small>
                         </div>
                         <div class="form-group">                            
                             <label>
-                                <input name="moderate_comments" type="checkbox" class="flat-red">
+                                <input name="moderate_comments" type="checkbox" value="1" class="flat-red">
                                 Moderate Comments
                             </label>
                             <small> (Edit, and approve comments)</small>
                         </div>
                         <div class="form-group">                            
                             <label>
-                                <input name="can_comment" type="checkbox" class="flat-red">
+                                <input name="can_comment" type="checkbox" value="1" class="flat-red">
                                 Can comment
                             </label>
                             <small> (Ability to comment on posts)</small>
                         </div>
                         <div class="form-group">                            
                             <label>
-                                <input name="manage_site_options" type="checkbox" class="flat-red">
+                                <input name="manage_site_options" type="checkbox" value="1" class="flat-red">
                                 Manage Site Options
                             </label>
                             <small> (Can edit site functionality)</small>
@@ -184,7 +188,7 @@
 <script>
 //Flat red color scheme for iCheck
 $(document).ready(function() {
-    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+    $('input[type="checkbox" value="1"].flat-red, input[type="radio"].flat-red').iCheck({
       checkboxClass: 'icheckbox_flat-red',
       radioClass: 'iradio_flat-red'
     });

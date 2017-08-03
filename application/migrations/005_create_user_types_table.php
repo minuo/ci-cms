@@ -15,6 +15,10 @@ class Migration_create_user_types_table extends CI_Migration {
                 'type_name' => array(
                     'type' => 'VARCHAR',
                     'constraint' => '191'
+                ),
+                'type_description' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => '255'
                 )
             ));
             $this->dbforge->add_key('id', TRUE);

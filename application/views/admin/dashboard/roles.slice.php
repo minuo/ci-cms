@@ -23,26 +23,41 @@
     <div class="box-body">
 
         @if(count($roles) > 0)
+            @php $count = 0; @endphp
             @foreach($roles as $role)
-                <div class="row">
+
+                @if($count == 0)
+                    <div class="row">
+                @endif
                     <div class="col-lg-3 col-xs-6">
                         <!-- small box -->
                         <div class="small-box bg-red">
                             <div class="inner">
-                                <h4><strong>Role Name</strong></h4>
+                                <h4><strong>{{ $role->type_name }}</strong></h4>
 
-                                <p>Role Description</p>
+                                <p>{{ $role->type_description }}</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-ban"></i>
                             </div>
-                            <a href="{{ base_url('ci-admin/comments') }}" class="small-box-footer">
+                            <a href="{{ base_url('ci-admin/roles/' . $role->id . '/edit') }}" class="small-box-footer">
                                 View <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
                     </div>
-                    <!-- ./col -->
-                </div>
+                    <!-- ./col -->                
+
+                @if($count == 3)
+                    </div>
+                @endif
+                
+                @php 
+                    if($count >= 3) {
+                        $count = 0;
+                    } else {
+                        $count++; 
+                    }
+                @endphp
             @endforeach
         @else
             <div class="pad margin no-print">
