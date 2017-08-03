@@ -45,7 +45,7 @@
         </div>
 
         <div class="col-md-4">
-            <div class="col-md-12">
+            <div class="col-md-12 no-padding">
                 <!-- Horizontal Form -->
                 <div class="box box-danger">
                     <div class="box-header with-border">
@@ -70,7 +70,7 @@
                 </div>
             </div>
         
-            <div class="col-md-12">
+            <div class="col-md-12 no-padding">
                 <!-- Horizontal Form -->
                 <div class="box box-danger">
                     <div class="box-header with-border">
