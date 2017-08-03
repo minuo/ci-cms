@@ -7,7 +7,7 @@ class Posts extends CI_Controller {
     {
         parent::__construct();
         if( ! $this->session->userdata('logged_in') ) {
-            redirect(base_url('auth/login'));
+            redirect(base_url('ci-admin'));
         } else {
             $this->load->library('slice');
             $this->load->model('posts_model');

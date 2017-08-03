@@ -22,7 +22,7 @@ class Auth extends CI_Controller {
         {
             redirect('/ci-admin/dashboard', 'location');
         } else {            
-            redirect('/auth/login', 'location');
+            redirect('/ci-admin', 'location');
         }
     }
 
