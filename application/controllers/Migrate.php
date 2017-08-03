@@ -25,5 +25,29 @@ class Migrate extends CI_Controller
 
                 $this->db->insert('users', $data);
         }
+        
+        /*
+        *
+        *       Not sure this is how we should handle the user types
+        *       but for now it should be alright
+        */
+        public function user_types()
+        {
+                $types = array(
+                        array(
+                                'type_name' => 'admin'
+                        ),
+                        array(
+                                'type_name' => 'editor'
+                        ),
+                        array(
+                                'type_name' => 'subscriber'
+                        )
+                );
+
+                foreach($types as $row) {
+                        $this->db->insert('user_types', $row);
+                }
+        }
 
 }
