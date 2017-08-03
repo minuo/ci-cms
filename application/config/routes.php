@@ -29,6 +29,8 @@ $route['ci-admin/users/store']              = 'Users/store';
 $route['ci-admin/roles']                    = 'Roles';
 $route['ci-admin/roles/create']             = 'Roles/create';
 $route['ci-admin/roles/store']              = 'Roles/store';
+$route['ci-admin/roles/(:num)/edit']        = 'Roles/edit/$1';
+$route['ci-admin/roles/(:num)/update']      = 'Roles/update/$1';
 
 // Default Routes
 $route['default_controller']                = 'Base';

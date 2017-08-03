@@ -42,6 +42,21 @@ class Roles extends CI_Controller {
 
     public function edit($id)
     {
-        
+        $data['role'] = $this->usertypes_model->get_role_by_id($id);
+
+        $this->slice->view('admin.edit.role', $data);
+    }
+
+    public function update($id)
+    {
+        $result = $this->usertypes_model->update($id);
+
+        if($result == true) {
+            $this->session->$this->session->set_flashdata('success', 'Role updated successfully!');
+            
+            redirect(base_url('ci-admin/roles')); 
+        } else {
+            redirect(base_url('ci-admin/roles/' . $id . '/edit')); 
+        }
     }
 }
