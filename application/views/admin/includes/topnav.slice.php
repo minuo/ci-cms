@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="{{ base_url('assets/admin/index2.html" class="logo">
+    <a href="{{ base_url('ci-admin/dashboard') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>C</b>I</span>
       <!-- logo for regular state and mobile devices -->
