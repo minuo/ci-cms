@@ -16,7 +16,9 @@ class Roles extends CI_Controller {
 
     public function index()
     {
-        $this->slice->view('admin.dashboard.roles');
+        $data['roles'] = $this->usertypes_model->get_all();
+
+        $this->slice->view('admin.dashboard.roles', $data);
     }
 
     public function create()

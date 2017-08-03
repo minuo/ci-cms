@@ -21,25 +21,37 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-        <div class="row">
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-red">
-                    <div class="inner">
-                        <h4><strong>Role Name</strong></h4>
 
-                        <p>Role Description</p>
+        @if(count($roles) > 0)
+            @foreach($roles as $role)
+                <div class="row">
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                <h4><strong>Role Name</strong></h4>
+
+                                <p>Role Description</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-ban"></i>
+                            </div>
+                            <a href="{{ base_url('ci-admin/comments') }}" class="small-box-footer">
+                                View <i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="icon">
-                        <i class="fa fa-ban"></i>
-                    </div>
-                    <a href="{{ base_url('ci-admin/comments') }}" class="small-box-footer">
-                        View <i class="fa fa-arrow-circle-right"></i>
-                    </a>
+                    <!-- ./col -->
                 </div>
-            </div>
-            <!-- ./col -->
-        </div>        
+            @endforeach
+        @else
+            <div class="pad margin no-print">
+                <div class="callout callout-warning" style="margin-bottom: 0!important;">
+                    <h4><i class="fa fa-info-circle"></i> Reminder:</h4>
+                    You have not added any user roles yet, create a new one <a href="{{ base_url('ci-admin/roles/create') }}">here</a>
+                </div>
+            </div>        
+        @endif
     </div>
 </div>
 @endsection
