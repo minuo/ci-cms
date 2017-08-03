@@ -17,7 +17,7 @@
 <div class="box">
     <div class="box-header">
         <h3 class="box-title">All Roles</h3>
-        <a href="{{ base_url('dashboard/roles/create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add New</a>
+        <a href="{{ base_url('ci-admin/roles/create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add New</a>
     </div>
     <!-- /.box-header -->
     <div class="box-body">

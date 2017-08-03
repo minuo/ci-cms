@@ -21,7 +21,7 @@ class Pages extends CI_Controller {
 
     public function create()
     {
-
+        $this->slice->view('admin.create.page');
     }
 
     public function store()

@@ -17,7 +17,7 @@
 <div class="box">
     <div class="box-header">
         <h3 class="box-title">All Users</h3>
-        <a href="{{ base_url('dashboard/users/create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add New</a>
+        <a href="{{ base_url('ci-admin/users/create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add New</a>
     </div>
     <!-- /.box-header -->
     <div class="box-body">

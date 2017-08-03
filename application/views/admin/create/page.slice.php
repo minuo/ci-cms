@@ -3,12 +3,12 @@
 @section('breadcrumb')
 <section class="content-header">
     <h1>
-        Posts
+        Pages
         <small>Add</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ base_url('dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ base_url('dashboard/posts') }}">Posts</a></li>
+        <li><a href="{{ base_url('dashboard/pages') }}">Pages</a></li>
         <li>Add</li>
     </ol>
 </section>
@@ -21,11 +21,11 @@
         <!-- Horizontal Form -->
         <div class="box box-danger">
             <div class="box-header with-border">
-                <h3 class="box-title">Add Post</h3>
+                <h3 class="box-title">Add Page</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" action="{{ base_url('ci-admin/posts/store') }}" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" action="{{ base_url('ci-admin/pages/store') }}" method="post" enctype="multipart/form-data">
                 <div class="box-body">
                     <div class="form-group">
                         <label for="post_title" class="col-sm-2 control-label">Title</label>
@@ -37,6 +37,16 @@
                         <label for="body" class="col-sm-2 control-label">Body</label>
                         <div class="col-sm-10">
                             <textarea id="editor" name="body" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="body" class="col-sm-2 control-label">Page Status</label>
+                        <div class="col-sm-10">
+                            <select name="post_status" class="form-control">
+                                <option value="draft">Draft</option>
+                                <option value="pending">Pending</option>
+                                <option value="published">Published</option>
+                            </select>
                         </div>
                     </div>
                 </div>
