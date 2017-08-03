@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pages extends CI_Controller {
+class Base extends CI_Controller {
 
     public function __construct()
     {
@@ -11,7 +11,7 @@ class Pages extends CI_Controller {
 
     public function index()
     {
-        $this->slice->view('admin.dashboard.pages');
+        $this->slice->view('pages.index');
     }
 
 }
