@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="{{ base_url('assets/admin/dist/css/style.css') }}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="{{ base_url('assets/admin/dist/css/skins/skin-red.min.css') }}">
+  <link rel="stylesheet" href="{{ base_url('assets/admin/dist/css/skins/_all-skins.min.css') }}">
 
   @yield('page-styles')
 
