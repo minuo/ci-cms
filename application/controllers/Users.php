@@ -19,4 +19,9 @@ class Users extends CI_Controller {
         $this->slice->view('admin.dashboard.users');
     }
 
+    public function create()
+    {
+        $this->slice->view('admin.create.user');
+    }
+
 }
