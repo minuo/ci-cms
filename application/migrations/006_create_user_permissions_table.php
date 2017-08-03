@@ -19,10 +19,6 @@ class Migration_create_user_types_table extends CI_Migration {
                     'type' => 'BOOL',
                     'default' => '0'
                 ),
-                'edit_usertypes' => array(
-                    'type' => 'BOOL',
-                    'default' => '0'
-                ),
                 'delete_usertypes' => array(
                     'type' => 'bool',
                     'default' => '0'
@@ -72,6 +68,10 @@ class Migration_create_user_types_table extends CI_Migration {
                     'default' => '0'
                 ),
                 'moderate_comments' => array(
+                    'type' => 'BOOL',
+                    'default' => '0'
+                ),
+                'can_comment' => array(
                     'type' => 'BOOL',
                     'default' => '0'
                 ),

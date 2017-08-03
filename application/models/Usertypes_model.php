@@ -7,5 +7,25 @@ class Usertypes_model extends CI_Model {
     {
 
     }
-    
+
+    public function get_role_by_id()
+    {
+        
+    }
+
+    public function create()
+    {
+
+    }
+
+    public function update()
+    {
+
+    }
+
+    public function destroy()
+    {
+
+    }
+
 }

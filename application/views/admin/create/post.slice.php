@@ -19,7 +19,6 @@
     <!-- form start -->
     <form class="form-horizontal" action="{{ base_url('ci-admin/posts/store') }}" method="post" enctype="multipart/form-data">
         <div class="col-md-8">
-            <!-- Horizontal Form -->
             <div class="box box-danger">
                 <div class="box-header with-border">
                     <h3 class="box-title">Add Post</h3>

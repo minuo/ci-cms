@@ -25,4 +25,9 @@ class Roles extends CI_Controller {
     {
         $this->slice->view('admin.create.role');
     }
+
+    public function store()
+    {
+        redirect(base_url('ci-admin/roles'));   
+    }
 }
