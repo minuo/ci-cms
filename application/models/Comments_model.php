@@ -16,16 +16,6 @@ class Comments_model extends CI_Model {
             return $query->result();
         }
     }
-
-    public function get_pending()
-    {
-        $this->db->order_by('id', 'DESC');
-        $query = $this->db->get_where('comments', array('pending' => '1'));
-
-        if($query->num_rows() > 0) {
-            return $query->result();
-        }
-    }
     
     /**
 	* Gets all comments relating to a particular post
