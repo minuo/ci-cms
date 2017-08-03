@@ -15,6 +15,11 @@ $route['ci-admin/pages']                = 'Pages';
 $route['ci-admin/pages/create']         = 'Pages/create';
 $route['ci-admin/pages/store']          = 'Pages/store';
 
+// Dashboard Users Routes
+$route['ci-admin/users']                = 'Users';
+$route['ci-admin/users/create']         = 'Users/create';
+$route['ci-admin/users/store']          = 'Users/store';
+
 // Default Routes
 $route['default_controller']            = 'Pages';
 $route['404_override']                  = '';
