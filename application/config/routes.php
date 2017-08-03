@@ -31,6 +31,6 @@ $route['ci-admin/roles/create']             = 'Roles/create';
 $route['ci-admin/roles/store']              = 'Roles/store';
 
 // Default Routes
-$route['default_controller']                = 'Pages';
+$route['default_controller']                = 'Base';
 $route['404_override']                      = '';
 $route['translate_uri_dashes']              = FALSE;
