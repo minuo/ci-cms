@@ -7,11 +7,12 @@ class Base extends CI_Controller {
     {
         parent::__construct();
         $this->load->library('slice');
+        $this->load->model('post_model');
     }
 
     public function index()
     {
-        $this->slice->view('pages.index');
+       
     }
 
 }
