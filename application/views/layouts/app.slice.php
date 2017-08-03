@@ -68,7 +68,8 @@
 
     <!-- Main content -->
     <section class="content">
-
+      @include('admin.includes.alerts')
+      
       @yield('content')
 
     </section>
