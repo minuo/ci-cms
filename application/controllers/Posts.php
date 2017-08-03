@@ -10,7 +10,12 @@ class Posts extends CI_Controller {
         $this->load->model('posts_model');
     }
 
-    public function index($guid)
+    public function index()
+    {
+        
+    }
+
+    public function find($guid)
     {
         $this->posts_model->get_post_by_guid($guid);
     }
