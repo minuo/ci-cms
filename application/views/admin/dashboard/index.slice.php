@@ -37,31 +37,7 @@
         <!-- /.info-box-content -->
         </div>
         <!-- /.info-box -->
-    </div>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-        <span class="info-box-icon bg-red"><i class="fa fa-th-large"></i></span>
-
-        <div class="info-box-content">
-            <span class="info-box-text">Works</span>
-            <span class="info-box-number">{{ count($works) }}</span>
-        </div>
-        <!-- /.info-box-content -->
-        </div>
-        <!-- /.info-box -->
-    </div>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-        <span class="info-box-icon bg-red"><i class="fa fa-envelope-o"></i></span>
-
-        <div class="info-box-content">
-            <span class="info-box-text">Messages</span>
-            <span class="info-box-number">{{ count($messages) }}</span>
-        </div>
-        <!-- /.info-box-content -->
-        </div>
-        <!-- /.info-box -->
-    </div>
+    </div>    
 </div>
 <!-- Small boxes (Stat box) -->
 <div class="row">
@@ -69,7 +45,7 @@
         <!-- small box -->
         <div class="small-box bg-red">
         <div class="inner">
-            <h3>{{ count($pending) }}</h3>
+            <h3></h3>
 
             <p>Pending Comments</p>
         </div>
@@ -77,23 +53,6 @@
             <i class="fa fa-commenting"></i>
         </div>
         <a href="{{ base_url('dashboard/comments') }}" class="small-box-footer">
-            View <i class="fa fa-arrow-circle-right"></i>
-        </a>
-        </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-6 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-red">
-        <div class="inner">
-            <h3>{{ count($unread) }}</h3>
-
-            <p>Unread Messages</p>
-        </div>
-        <div class="icon">
-            <i class="fa fa-inbox"></i>
-        </div>
-        <a href="{{ base_url('dashboard/messages') }}" class="small-box-footer">
             View <i class="fa fa-arrow-circle-right"></i>
         </a>
         </div>
@@ -125,24 +84,7 @@
                         </div> 
                     </a>
                 </div>
-                <!-- ./col -->
-                <div class="col-lg-6 col-xs-6">
-                    <!-- small box -->
-                    <a href="{{ base_url('dashboard/works/add') }}">
-                        <div class="small-box bg-red">
-                            <div class="inner">
-                                <h5>Create Work</h5>
-                            </div>
-                            <div class="icon" style="top: -50px">
-                                <i class="fa fa-th" style="font-size: 0.5em"></i>
-                            </div>                        
-                        </div>
-                        <div class="small-box-footer">
-                           
-                        </div>
-                    </a>
-                </div>
-                <!-- ./col -->
+                <!-- ./col -->                
             </div>
             <div class="box-footer">
 
