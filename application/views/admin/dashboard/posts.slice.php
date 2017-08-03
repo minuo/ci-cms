@@ -37,25 +37,7 @@
                 </tr>
             </thead>
             <tbody>
-                @if(count($posts) > 0)
-                    @foreach($posts as $post)
-                        <tr>
-                            <td>{{ $post->id }}</td>
-                            <td><a href="{{ base_url('dashboard/posts/' . $post->id . '/edit') }}" >{{ $post->title }} </a></td>
-                            <td>{{ $post->slug }}</td>
-                            <td>{{ $post->category }}</td>
-                            <td>{{ $post->created_at }}</td>
-                            <td>{{ $post->draft }}</td>
-                            <td align="center">
-                                <p>
-                                    <a href="{{ base_url('dashboard/posts/' . $post->id . '/delete') }}"  class="btn btn-danger btn-xs">
-                                        <span class="fa fa-fw fa-times"></span>
-                                    </a>
-                                </p>
-                            </td>
-                        </tr>
-                    @endforeach                
-                @endif
+                
             </tbody>
         </table>
     </div>

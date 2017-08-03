@@ -12,7 +12,7 @@ class Posts extends CI_Controller {
 
     public function index()
     {
-        
+        $this->slice->view('admin.dashboard.posts');
     }
 
     public function find($guid)
