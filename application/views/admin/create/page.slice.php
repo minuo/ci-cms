@@ -8,7 +8,7 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ base_url('ci-admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ base_url('ci-admin/pages') }}">Pages</a></li>
+        <li><a href="{{ base_url('ci-admin/pages') }}"><i class="fa fa-file"></i> Pages</a></li>
         <li>Add</li>
     </ol>
 </section>
