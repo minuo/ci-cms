@@ -19,9 +19,9 @@ class Posts extends CI_Controller {
         $this->slice->view('admin.dashboard.posts');
     }
 
-    public function find($guid)
+    public function create() 
     {
-        $this->posts_model->get_post_by_guid($guid);
+        $this->slice->view('admin.create.post');
     }
 
 }
