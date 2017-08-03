@@ -7,7 +7,7 @@
         <small>Overview</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ base_url('dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ base_url('ci-admin/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
     </ol>
 </section>
 @endsection
@@ -37,7 +37,31 @@
         <!-- /.info-box-content -->
         </div>
         <!-- /.info-box -->
-    </div>    
+    </div>  
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+        <span class="info-box-icon bg-red"><i class="fa fa-file-o"></i></span>
+
+        <div class="info-box-content">
+            <span class="info-box-text">Pages</span>
+            <span class="info-box-number">0</span>
+        </div>
+        <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+        <span class="info-box-icon bg-red"><i class="fa fa-users"></i></span>
+
+        <div class="info-box-content">
+            <span class="info-box-text">Users</span>
+            <span class="info-box-number">0</span>
+        </div>
+        <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>  
 </div>
 <!-- Small boxes (Stat box) -->
 <div class="row">
@@ -45,14 +69,14 @@
         <!-- small box -->
         <div class="small-box bg-red">
         <div class="inner">
-            <h3></h3>
+            <h3>0</h3>
 
             <p>Pending Comments</p>
         </div>
         <div class="icon">
             <i class="fa fa-commenting"></i>
         </div>
-        <a href="{{ base_url('dashboard/comments') }}" class="small-box-footer">
+        <a href="{{ base_url('ci-admin/comments') }}" class="small-box-footer">
             View <i class="fa fa-arrow-circle-right"></i>
         </a>
         </div>
@@ -70,13 +94,47 @@
             <div class="box-body">
                 <div class="col-lg-6 col-xs-6">
                     <!-- small box -->
-                    <a href="{{ base_url('dashboard/posts/add') }}">
+                    <a href="{{ base_url('ci-admin/posts/create') }}">
                         <div class="small-box bg-red">
                             <div class="inner">
                                 <h5>Create Post</h5>
                             </div>
                             <div class="icon" style="top: -50px">
                                 <i class="fa fa-pencil" style="font-size: 0.5em"></i>
+                            </div>                                                   
+                        </div>
+                        <div class="small-box-footer">
+                           
+                        </div> 
+                    </a>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-6 col-xs-6">
+                    <!-- small box -->
+                    <a href="{{ base_url('ci-admin/pages/create') }}">
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                <h5>Create Page</h5>
+                            </div>
+                            <div class="icon" style="top: -50px">
+                                <i class="fa fa-file" style="font-size: 0.5em"></i>
+                            </div>                                                   
+                        </div>
+                        <div class="small-box-footer">
+                           
+                        </div> 
+                    </a>
+                </div>
+                <!-- ./col -->       
+                <div class="col-lg-6 col-xs-6">
+                    <!-- small box -->
+                    <a href="{{ base_url('ci-admin/users/create') }}">
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                <h5>Create User</h5>
+                            </div>
+                            <div class="icon" style="top: -50px">
+                                <i class="fa fa-user" style="font-size: 0.5em"></i>
                             </div>                                                   
                         </div>
                         <div class="small-box-footer">
