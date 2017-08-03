@@ -12,7 +12,7 @@ class Users extends CI_Controller {
 
     public function index()
     {
-        
+        $this->slice->view('admin.dashboard.users');
     }
 
 }
