@@ -3,51 +3,28 @@
 class Migrate extends CI_Controller
 {
 
-        public function index()
-        {
-                $this->load->library('migration');
+	public function index()
+	{
+		$this->load->library('migration');
 
-                if ($this->migration->current() === FALSE)
-                {
-                        show_error($this->migration->error_string());
-                }
-        }
+		if ($this->migration->current() === FALSE) {
+			show_error($this->migration->error_string());
+		} else {
+			echo 'Migrations ran successfully, no errors to display';
+		}
+	}
 
-        public function webmaster()
-        {
-                $data = array(
-                        'username' => 'webmaster',
-                        'email' => 'webmaster@localhost',
-                        'fullname' => 'webmaster',
-                        'password' => password_hash('web_admin1!', PASSWORD_BCRYPT),
-                        'user_status' => '1'
-                );
+	public function webmaster()
+	{
+		$data = array(
+			'username' => 'webmaster',
+			'email' => 'webmaster@localhost',
+			'fullname' => 'webmaster',
+			'password' => password_hash('web_admin1!', PASSWORD_BCRYPT),
+			'user_status' => '1'
+		);
 
-                $this->db->insert('users', $data);
-        }
-        
-        /*
-        *
-        *       Not sure this is how we should handle the user types
-        *       but for now it should be alright
-        */
-        public function user_types()
-        {
-                $types = array(
-                        array(
-                                'type_name' => 'admin'
-                        ),
-                        array(
-                                'type_name' => 'editor'
-                        ),
-                        array(
-                                'type_name' => 'subscriber'
-                        )
-                );
-
-                foreach($types as $row) {
-                        $this->db->insert('user_types', $row);
-                }
-        }
+		$this->db->insert('users', $data);
+	}
 
 }
