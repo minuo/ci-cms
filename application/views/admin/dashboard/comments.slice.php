@@ -35,34 +35,7 @@
                 </tr>
             </thead>
             <tbody>
-                @if(count($comments) > 0)
-                    @foreach($comments as $comment)
-                    @if($comment->pending == 1)
-                        <tr style="background-color: #fff !important">
-                    @else
-                        <tr style="background-color: #efefef !important">
-                    @endif
-                            <td>{{ $comment->id }}</td>
-                            <td><a href="{{ base_url('dashboard/comments/' . $comment->id . '/edit') }}" >{{ $comment->name }} </a></td>
-                            <td>{{ $comment->post_id }}</td>
-                            <td>{{ $comment->created_at }}</td>
-
-                            @if($comment->pending == 1)
-                                <td>Pending</td>
-                            @else
-                                <td>Approved</td>
-                            @endif
-                                              
-                            <td align="center">
-                                <p>
-                                    <a href="{{ base_url('dashboard/comments/' . $comment->id . '/delete') }}"  class="btn btn-danger btn-xs">
-                                        <span class="fa fa-fw fa-times"></span>
-                                    </a>
-                                </p>
-                            </td>
-                        </tr>
-                    @endforeach                
-                @endif
+                
             </tbody>
         </table>
     </div>
