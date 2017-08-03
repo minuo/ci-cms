@@ -7,6 +7,12 @@ class Posts extends CI_Controller {
     {
         parent::__construct();
         $this->load->library('slice');
+        $this->load->model('posts_model');
+    }
+
+    public function index($guid)
+    {
+        $this->posts_model->get_post_by_guid($guid);
     }
 
 }

@@ -25,36 +25,12 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" action="{{ base_url('dashboard/posts/store') }}" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" action="{{ base_url('posts/store') }}" method="post" enctype="multipart/form-data">
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="post_img" class="col-sm-2 control-label">Blog Img</label>
+                        <label for="post_title" class="col-sm-2 control-label">Title</label>
                         <div class="col-sm-10">
-                            <input type="file" name="post_img">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="post_img_bg" class="col-sm-2 control-label">Header Img</label>
-                        <div class="col-sm-10">
-                            <input type="file" name="post_img_bg">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="title" class="col-sm-2 control-label">Title</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="title" class="form-control" id="" placeholder="Title">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="category" class="col-sm-2 control-label">Category</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="category" class="form-control" id="" placeholder="Category">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="tags" class="col-sm-2 control-label">Tags</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="tags" class="form-control" id="" placeholder="Tags">
+                            <input type="text" name="post_title" class="form-control" id="" placeholder="Title">
                         </div>
                     </div>
                     <div class="form-group">
