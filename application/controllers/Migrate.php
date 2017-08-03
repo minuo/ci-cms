@@ -19,7 +19,8 @@ class Migrate extends CI_Controller
                         'username' => 'webmaster',
                         'email' => 'webmaster@localhost',
                         'fullname' => 'webmaster',
-                        'password' => password_hash('web_admin1!', PASSWORD_BCRYPT)
+                        'password' => password_hash('web_admin1!', PASSWORD_BCRYPT),
+                        'user_status' => '1'
                 );
 
                 $this->db->insert('users', $data);

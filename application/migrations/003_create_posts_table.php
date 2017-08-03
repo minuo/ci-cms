@@ -12,37 +12,35 @@ class Migration_create_posts_table extends CI_Migration {
                     'unsigned' => TRUE,
                     'auto_increment' => TRUE
                 ),
-                'slug' => array(
+                'guid' => array(
                     'type' => 'VARCHAR',
-                    'constraint' => '191'
+                    'constraint' => '255'
                 ),
-                'title' => array(
-                    'type' => 'VARCHAR',
-                    'constraint' => '191'
-                ),                
-                'body' => array(
+                'post_type' => array(
+                    'type' => 'INT'
+                ),
+                'post_author' => array(
+                    'type' => 'INT'
+                ),
+                'post_title' => array(
                     'type' => 'TEXT'
                 ),
-                'category' => array(
-                    'type' => 'VARCHAR',
-                    'constraint' => '191'
-                ),
-                'tags' => array(
+                'post_body' => array(
                     'type' => 'TEXT'
+                ),
+                'post_status' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => '255'
                 ),
                 'created_at' => array(
                     'type' => 'TIMESTAMP'
                 ),
                 'updated_at' => array(
                     'type' => 'TIMESTAMP'
-                ),
-                'draft' => array(
-                    'type' => 'BOOL',
-                    'default' => '0'
-                )
+                )                
             ));
             $this->dbforge->add_key('id', TRUE);
-            $this->dbforge->add_key('slug', 'posts_slug_unique');
+            $this->dbforge->add_key('guid', 'posts_guid_unique');
             $this->dbforge->create_table('posts');
         }
 

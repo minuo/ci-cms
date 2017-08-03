@@ -15,15 +15,15 @@ class Migration_create_comments_table extends CI_Migration {
                 'post_id' => array(
                     'type' => 'INT'
                 ),
-                'name' => array(
+                'comment_author' => array(
                     'type' => 'VARCHAR',
                     'constraint' => '191'
                 ),
-                'email' => array(
+                'comment_author_email' => array(
                     'type' => 'VARCHAR',
                     'constraint' => '191'
                 ),
-                'comment' => array(
+                'comment_content' => array(
                     'type' => 'TEXT'
                 ),
                 'created_at' => array(
@@ -32,9 +32,9 @@ class Migration_create_comments_table extends CI_Migration {
                 'updated_at' => array(
                     'type' => 'TIMESTAMP'
                 ),
-                'pending' => array(
-                    'type' => 'BOOL',
-                    'default' => '0'
+                'comment_status' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => '191'
                 )
             ));
             $this->dbforge->add_key('id', TRUE);

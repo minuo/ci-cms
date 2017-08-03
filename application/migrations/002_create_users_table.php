@@ -28,6 +28,14 @@ class Migration_create_users_table extends CI_Migration {
                 'type' => 'VARCHAR',
                 'constraint' => '191'
             ),
+            'user_status' => array(
+                'type' => 'BOOL',
+                'default' => '0'
+            ),
+            'user_type' => array(
+                'type' => 'INT',
+                'default' => '0'
+            )
         ));
         $this->dbforge->add_key('id', TRUE);
         $this->dbforge->create_table('users');
