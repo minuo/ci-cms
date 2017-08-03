@@ -16,50 +16,82 @@
 
 @section('content')
 <div class="row">
-
-    <div class="col-md-12">
-        <!-- Horizontal Form -->
-        <div class="box box-danger">
-            <div class="box-header with-border">
-                <h3 class="box-title">Add Page</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form class="form-horizontal" action="{{ base_url('ci-admin/pages/store') }}" method="post" enctype="multipart/form-data">
+    <!-- form start -->
+    <form class="form-horizontal" action="{{ base_url('ci-admin/pages/store') }}" method="post" enctype="multipart/form-data">
+        <div class="col-md-8">
+            <!-- Horizontal Form -->
+            <div class="box box-danger">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Add Page</h3>
+                </div>
+                <!-- /.box-header -->            
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="post_title" class="col-sm-2 control-label">Title</label>
-                        <div class="col-sm-10">
+                        <label for="post_title" class="col-sm-1 control-label">Title</label>
+                        <div class="col-sm-11">
                             <input type="text" name="post_title" class="form-control" id="" placeholder="Title">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="body" class="col-sm-2 control-label">Body</label>
-                        <div class="col-sm-10">
-                            <textarea id="editor" name="body" class="form-control"></textarea>
+                        <label for="post_body" class="col-sm-1 control-label">Body</label>
+                        <div class="col-sm-11">
+                            <textarea id="editor" name="post_body" class="form-control"></textarea>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="body" class="col-sm-2 control-label">Page Status</label>
-                        <div class="col-sm-10">
-                            <select name="post_status" class="form-control">
-                                <option value="draft">Draft</option>
-                                <option value="pending">Pending</option>
-                                <option value="published">Published</option>
-                            </select>
-                        </div>
-                    </div>
+                    </div>                    
                 </div>
-                <!-- /.box-body -->
-                <div class="box-footer">
-                    <button type="clear" class="btn btn-default">Clear</button>
-                    <button type="submit" class="btn btn-success pull-right">Add</button>
-                </div>
-                <!-- /.box-footer -->
-            </form>
+                <!-- /.box-body -->                       
+            </div>
+            <!-- /.box -->
         </div>
-        <!-- /.box -->
-    </div>
+
+        <div class="col-md-4">
+            <div class="col-md-12">
+                <!-- Horizontal Form -->
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Add Page</h3>
+                    </div>
+                    <!-- /.box-header -->            
+                    <div class="box-body">
+                        
+                        <label for="post_status" class="control-label">Page Status</label>               
+                        <select name="post_status" class="form-control">
+                            <option value="draft">Draft</option>
+                            <option value="pending">Pending</option>
+                            <option value="published">Published</option>
+                        </select>               
+                
+                    </div>
+                    <div class="box-footer text-right">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-plus"></i> Publish
+                        </button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-12">
+                <!-- Horizontal Form -->
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Featured Image</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    
+                    <div class="box-body">
+                        <div class="form-group">                        
+                            <div class="col-sm-12">
+                                <label for="featured_img">Featured Image</label>
+                                <input type="file" name="featured_img">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>   
+        </div>     
+
+    </form>
 
 </div>
 @endsection
