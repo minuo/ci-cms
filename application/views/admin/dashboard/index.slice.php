@@ -68,17 +68,17 @@
     <div class="col-lg-6 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-red">
-        <div class="inner">
-            <h3>0</h3>
+            <div class="inner">
+                <h3>0</h3>
 
-            <p>Pending Comments</p>
-        </div>
-        <div class="icon">
-            <i class="fa fa-commenting"></i>
-        </div>
-        <a href="{{ base_url('ci-admin/comments') }}" class="small-box-footer">
-            View <i class="fa fa-arrow-circle-right"></i>
-        </a>
+                <p>Pending Comments</p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-commenting"></i>
+            </div>
+            <a href="{{ base_url('ci-admin/comments') }}" class="small-box-footer">
+                View <i class="fa fa-arrow-circle-right"></i>
+            </a>
         </div>
     </div>
     <!-- ./col -->

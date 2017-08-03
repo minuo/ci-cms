@@ -27,7 +27,15 @@
         <table id="dataTable" class="table table-bordered">
             <thead>
                 <tr>
-                    
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Slug</th>
+                        <th>Category</th>
+                        <th>Created</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
                 </tr>
             </thead>
             <tbody>

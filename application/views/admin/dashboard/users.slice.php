@@ -27,7 +27,13 @@
         <table id="dataTable" class="table table-bordered">
             <thead>
                 <tr>
-                    
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
