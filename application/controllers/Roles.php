@@ -7,7 +7,7 @@ class Roles extends CI_Controller {
     {
         parent::__construct();
         $this->load->library('slice');
-        $this->load->model('posts_model');
+        $this->load->model('usertypes_model');
     }
 
     public function index()

@@ -7,7 +7,7 @@ class Users extends CI_Controller {
     {
         parent::__construct();
         $this->load->library('slice');
-        $this->load->model('posts_model');
+        $this->load->model('users_model');
     }
 
     public function index()
