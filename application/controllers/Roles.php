@@ -19,4 +19,8 @@ class Roles extends CI_Controller {
         $this->slice->view('admin.dashboard.roles');
     }
 
+    public function create()
+    {
+        $this->slice->view('admin.create.role');
+    }
 }
