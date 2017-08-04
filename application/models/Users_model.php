@@ -27,16 +27,49 @@ class Users_model extends CI_Model {
 
     public function create()
     {
-    
+        $data = array(
+            'username' => $this->input->post('username'),
+            'fullname' => $this->input->post('fullname'),
+            'email' => $this->input->post('email'),
+            'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
+            'user_status' => $this->input->post('user_status'),
+            'user_type' => $this->input->post('user_type')
+        );
+
+        $result = $this->db->insert('users', $data);
+
+        if($result) {
+            return true;
+        }
     }
 
     public function update($id)
     {
+        $data = array(
+            'username' => $this->input->post('username'),
+            'fullname' => $this->input->post('fullname'),
+            'email' => $this->input->post('email'),
+            'user_status' => $this->input->post('user_status'),
+            'user_type' => $this->input->post('user_type')
+        );
 
+        if($this->input->post('password') != '') {
+            $data['password'] = password_hash($this->input->post('password'), PASSWORD_BCRYPT);
+        }
+
+        $result = $this->db->update('users', $data, array('id' => $id));
+
+        if($result) {
+            return true;
+        }
     }
 
     public function destroy($id)
     {
+        $result = $this->db->delete('users', array('id' => $id));
 
+        if($result) {
+            return true;
+        }
     }
 }   
