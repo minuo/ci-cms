@@ -41,7 +41,9 @@ class Categories_model extends CI_Model {
     public function create()
     {
         $data = array(            
-      
+            'category_name' => $this->input->post('category_name'),
+            'category_description' => $this->input->post('category_description'),
+            'category_guid' => $this->input->post('category_guid')
         );
 
         $result = $this->db->insert('post_categories', $data);
@@ -59,7 +61,9 @@ class Categories_model extends CI_Model {
     public function update($id)
     {
         $data = array(            
-
+            'category_name' => $this->input->post('category_name'),
+            'category_description' => $this->input->post('category_description'),
+            'category_guid' => $this->input->post('category_guid')
         );
 
         $result = $this->db->update('post_categories', $data, array('id' => $id));
