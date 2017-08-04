@@ -25,7 +25,8 @@ class Migration_create_categories_table extends CI_Migration {
                     'constraint' => '255'
                 ),
                 'category_count' => array(
-                    'type' => 'INT'
+                    'type' => 'INT',
+                    'default' => '0'
                 )
             ));
             $this->dbforge->add_key('id', TRUE);
