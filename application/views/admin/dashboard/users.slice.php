@@ -50,7 +50,16 @@
                             @else
                                 <td>Inactive</td>
                             @endif
-                            <td></td>
+                            <td align="center">
+                                <p>
+                                    <a href="{{ base_url('ci-admin/users/' . $user->id . '/edit') }}"  class="btn btn-primary btn-xs">
+                                        <span class="fa fa-fw fa-pencil"></span>
+                                    </a>
+                                    <a href="{{ base_url('ci-admin/users/' . $user->id . '/delete') }}"  class="btn btn-danger btn-xs">
+                                        <span class="fa fa-fw fa-times"></span>
+                                    </a>
+                                </p>
+                            </td>
                         </tr>
                     @endforeach
                 @endif     
