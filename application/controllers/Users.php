@@ -31,7 +31,7 @@ class Users extends CI_Controller {
     {
         $result = $this->users_model->create();
 
-        if($result == true) {
+        if($result) {
             $this->session->set_flashdata('success', 'User created successfully!');
             
             redirect(base_url('ci-admin/users')); 
@@ -45,7 +45,7 @@ class Users extends CI_Controller {
     {
         $data['user'] = $this->users_model->get_user_by_id($id);
         $data['roles'] = $this->usertypes_model->get_all();
-        
+
         $this->slice->view('admin.edit.user', $data);
     }
 

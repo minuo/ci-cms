@@ -41,11 +41,11 @@
                         </div>
                         <div class="form-group">
                             <label for="password" class="control-label">Password</label>
-                            <input type="text" name="password" class="form-control">
+                            <input type="password" name="password" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="confirm_pass" class="control-label">Confirm Password</label>
-                            <input type="text" name="confirm_pass" class="form-control">
+                            <input type="password" name="confirm_pass" class="form-control">
                         </div>
                     </div>
                 </div>
