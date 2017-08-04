@@ -43,6 +43,7 @@
                         <!-- User types permissions -->
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='create_usertypes'>
                                 <input name="create_usertypes" type="checkbox" value="1" class="flat-red">
                                 Create Roles
                             </label>
@@ -50,6 +51,7 @@
                         </div> 
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='delete_usertypes'>
                                 <input name="delete_usertypes" type="checkbox" value="1" class="flat-red">
                                 Delete Roles
                             </label>
@@ -60,6 +62,7 @@
                         <!-- User permissions -->
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='create_users'>
                                 <input name="create_users" type="checkbox" value="1" class="flat-red">
                                 Create Users
                             </label>
@@ -67,6 +70,7 @@
                         </div>
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='edit_users'>
                                 <input name="edit_users" type="checkbox" value="1" class="flat-red">
                                 Edit Users
                             </label>
@@ -74,6 +78,7 @@
                         </div>
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='delete_users'>
                                 <input name="delete_users" type="checkbox" value="1" class="flat-red">
                                 Delete Users
                             </label>
@@ -83,6 +88,7 @@
                         <!-- posts permissions -->
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='create_posts'>
                                 <input name="create_posts" type="checkbox" value="1" class="flat-red">
                                 Create Posts
                             </label>
@@ -90,6 +96,7 @@
                         </div>
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='edit_posts'>
                                 <input name="edit_posts" type="checkbox" value="1" class="flat-red">
                                 Edit Posts
                             </label>
@@ -97,6 +104,7 @@
                         </div>
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='delete_posts'>
                                 <input name="delete_posts" type="checkbox" value="1" class="flat-red">
                                 Delete Posts
                             </label>
@@ -106,6 +114,7 @@
                         <!-- upload file permissions -->
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='upload_files'>
                                 <input name="upload_files" type="checkbox" value="1" class="flat-red">
                                 Upload Media
                             </label>
@@ -115,6 +124,7 @@
                         <!-- pages permissions -->
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='create_pages'>
                                 <input name="create_pages" type="checkbox" value="1" class="flat-red">
                                 Create Pages
                             </label>
@@ -122,6 +132,7 @@
                         </div>
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='edit_pages'>
                                 <input name="edit_pages" type="checkbox" value="1" class="flat-red">
                                 Edit Pages
                             </label>
@@ -129,6 +140,7 @@
                         </div>
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='delete_pages'>
                                 <input name="delete_pages" type="checkbox" value="1" class="flat-red">
                                 Delete Pages
                             </label>
@@ -138,6 +150,7 @@
                         <!-- misc permissions -->
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='manage_categories'>
                                 <input name="manage_categories" type="checkbox" value="1" class="flat-red">
                                 Manage Categories
                             </label>
@@ -145,6 +158,7 @@
                         </div>
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='moderate_comments'>
                                 <input name="moderate_comments" type="checkbox" value="1" class="flat-red">
                                 Moderate Comments
                             </label>
@@ -152,6 +166,7 @@
                         </div>
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='can_comment'>
                                 <input name="can_comment" type="checkbox" value="1" class="flat-red">
                                 Can comment
                             </label>
@@ -159,6 +174,7 @@
                         </div>
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='manage_site_options'>
                                 <input name="manage_site_options" type="checkbox" value="1" class="flat-red">
                                 Manage Site Options
                             </label>

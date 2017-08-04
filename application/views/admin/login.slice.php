@@ -32,7 +32,7 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    @include('includes.alerts')
+    @include('admin.includes.alerts')
     <p class="login-box-msg">Sign in to start your session</p>
 
     <form action="{{ base_url('auth/validate') }}" method="post">
