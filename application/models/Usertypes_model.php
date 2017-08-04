@@ -32,7 +32,8 @@ class Usertypes_model extends CI_Model {
             'type_description' => $this->input->post('type_description')
         );
 
-        $insert_id = $this->db->insert('user_types', $data);
+        $this->db->insert('user_types', $data);
+        $insert_id = $this->db->insert_id();
 
         $data = array(
             'usertype_id' => $insert_id,
@@ -54,7 +55,11 @@ class Usertypes_model extends CI_Model {
             'manage_site_options' => $this->input->post('manage_site_options')
         );
 
-        $this->db->insert('user_permissions', $data);
+        $result = $this->db->insert('user_permissions', $data);
+
+        if($result) {
+            return true;
+        }
     }
 
     public function update($id)
@@ -85,14 +90,21 @@ class Usertypes_model extends CI_Model {
             'manage_site_options' => $this->input->post('manage_site_options')
         );
 
-        $this->db->update('user_permissions', $data, array('usertype_id' => $id));
+        $result = $this->db->update('user_permissions', $data, array('usertype_id' => $id));
 
-        return true;
+        if($result) {
+            return true;
+        }
     }
 
-    public function destroy()
+    public function destroy($id)
     {
+        $this->db->delete('user_types', array('id' => $id));
+        $result = $this->db->delete('user_permissions', array('usertype_id' => $id));
 
+        if($result) {
+            return true;
+        }
     }
 
 }

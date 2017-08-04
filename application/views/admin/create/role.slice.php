@@ -187,6 +187,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer text-right">
+                    <a href="{{ base_url('ci-admin/roles') }}" class="btn btn-default"> Cancel</a>
                     <button type="submit" class="btn btn-primary">
                         <i class="fa fa-plus"></i> Add Role
                     </button>

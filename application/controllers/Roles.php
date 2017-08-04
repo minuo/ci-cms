@@ -51,11 +51,28 @@ class Roles extends CI_Controller {
     {
         $result = $this->usertypes_model->update($id);
 
-        if($result == true) {
+        if($result) {
             $this->session->set_flashdata('success', 'Role updated successfully!');
             
             redirect(base_url('ci-admin/roles')); 
         } else {
+            $this->session->set_flashdata('success', 'Role updated successfully!');
+
+            redirect(base_url('ci-admin/roles/' . $id . '/edit')); 
+        }
+    }
+
+    public function destroy($id)
+    {
+        $result = $this->usertypes_model->destroy($id);
+
+         if($result) {
+            $this->session->set_flashdata('success', 'Role deleted successfully!');
+            
+            redirect(base_url('ci-admin/roles')); 
+        } else {
+            $this->session->set_flashdata('errors', 'Role coule not be deleted!');
+
             redirect(base_url('ci-admin/roles/' . $id . '/edit')); 
         }
     }

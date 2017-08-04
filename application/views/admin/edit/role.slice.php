@@ -21,7 +21,7 @@
 @section('content')
 <div class="row">
     <!-- form start -->
-    <form action="{{ base_url('ci-admin/roles/' . $role->id . '/update') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ base_url('ci-admin/roles/' . $role->usertype_id . '/update') }}" method="post" enctype="multipart/form-data">
         <div class="col-md-8">            
             <div class="box box-danger">
                 <div class="box-header with-border">
@@ -187,6 +187,8 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer text-right">
+                    <a href="{{ base_url('ci-admin/roles') }}" class="btn btn-default"> Cancel</a>
+                    <a href="{{ base_url('ci-admin/roles/' . $role->usertype_id . '/delete') }}" class="btn btn-danger"> Delete Role</a>
                     <button type="submit" class="btn btn-primary">
                         <i class="fa fa-plus"></i> Update Role
                     </button>
