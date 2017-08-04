@@ -37,7 +37,19 @@
                 </tr>
             </thead>
             <tbody>
-                
+                @if(count($posts))
+                    @foreach($posts as $post)
+                        <tr>
+                            <td>{{ $post->id }}</td>
+                            <td>{{ $post->post_title }}</td>
+                            <td>{{ $post->post_guid }}</td>
+                            <td>{{ $post->post_category }}</td>
+                            <td>{{ $post->created_at }}</td>
+                            <td>{{ $post->post_status }}</td>
+                            <td></td>
+                        </tr>
+                    @endforeach
+                @endif
             </tbody>
         </table>
     </div>

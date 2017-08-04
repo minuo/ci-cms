@@ -25,6 +25,7 @@
                 </div>
                 <!-- /.box-header -->            
                 <div class="box-body">
+                    <input type="hidden" name="post_type" value="post">
                     <div class="form-group">
                         <label for="post_title" class="col-sm-1 control-label">Title</label>
                         <div class="col-sm-11">
