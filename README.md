@@ -3,7 +3,7 @@
 # Alt_K Software Solutions
 
 ### Project: CI-CMS
-### Author: Michael A. Kranker
+### Author: [Michael A. Kranker](https://www.michaelkranker.com)
 
 This application will be a simple alternative to users looking for a more customizable CMS solution.
 Built upon the Codeigniter Framework, it will allow for easy, out of the box CMS capabilities like managing 
