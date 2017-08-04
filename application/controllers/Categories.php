@@ -39,7 +39,7 @@ class Categories extends CI_Controller {
 
     public function edit($id)
     {
-        $data['post'] = $this->categories_model->get_category_by_id($id);
+        $data['category'] = $this->categories_model->get_category_by_id($id);
 
         $this->slice->view('admin.edit.category', $data);
     }
