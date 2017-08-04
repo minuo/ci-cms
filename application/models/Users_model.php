@@ -18,7 +18,7 @@ class Users_model extends CI_Model {
 
     public function get_user_by_id($id)
     {
-        $this->db->get_where('users', array('id' => $id));
+        $query = $this->db->get_where('users', array('id' => $id));
 
         if($query->num_rows() > 0){
             return $query->row();

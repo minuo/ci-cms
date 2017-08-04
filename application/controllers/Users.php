@@ -44,7 +44,8 @@ class Users extends CI_Controller {
     public function edit($id)
     {
         $data['user'] = $this->users_model->get_user_by_id($id);
-
+        $data['roles'] = $this->usertypes_model->get_all();
+        
         $this->slice->view('admin.edit.user', $data);
     }
 
