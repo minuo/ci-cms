@@ -16,64 +16,61 @@ class Categories extends CI_Controller {
 
     public function index()
     {
-        $data['posts'] = $this->posts_model->get_all();
+        $data['categories'] = $this->categories_model->get_all();
 
-        $this->slice->view('admin.dashboard.posts', $data);
-    }
-
-    public function create() 
-    {
-        $this->slice->view('admin.create.post');
+        $this->slice->view('admin.dashboard.categories', $data);
     }
 
     public function store()
     {
-        $result = $this->posts_model->create();
+        $result = $this->categories_model->create();
 
         if($result) {
-            $this->session->set_flashdata('success', 'Post created successfully!');
+            $this->session->set_flashdata('success', 'Category created successfully!');
             
-            redirect(base_url('ci-admin/posts')); 
+            redirect(base_url('ci-admin/categories')); 
         } else {
-            redirect(base_url('ci-admin/posts/create')); 
+           $this->session->set_flashdata('errors', 'Category could not be created!');
+            
+            redirect(base_url('ci-admin/categories')); 
         }
           
     }
 
     public function edit($id)
     {
-        $data['post'] = $this->posts_model->get_post_by_id($id);
+        $data['post'] = $this->categories_model->get_category_by_id($id);
 
-        $this->slice->view('admin.edit.post', $data);
+        $this->slice->view('admin.edit.category', $data);
     }
 
     public function update($id)
     {
-        $result = $this->posts_model->update($id);
+        $result = $this->categories_model->update($id);
 
         if($result) {
-            $this->session->set_flashdata('success', 'Post updated successfully!');
+            $this->session->set_flashdata('success', 'Category updated successfully!');
             
-            redirect(base_url('ci-admin/posts')); 
+            redirect(base_url('ci-admin/categories')); 
         } else {
-            $this->session->set_flashdata('success', 'Post updated successfully!');
+            $this->session->set_flashdata('errors', 'Category could not be updated!');
 
-            redirect(base_url('ci-admin/posts/' . $id . '/edit')); 
+            redirect(base_url('ci-admin/categories/' . $id . '/edit')); 
         }
     }
 
     public function destroy($id)
     {
-        $result = $this->posts_model->destroy($id);
+        $result = $this->categories_model->destroy($id);
 
          if($result) {
-            $this->session->set_flashdata('success', 'Post deleted successfully!');
+            $this->session->set_flashdata('success', 'Category deleted successfully!');
             
-            redirect(base_url('ci-admin/posts')); 
+            redirect(base_url('ci-admin/categories')); 
         } else {
-            $this->session->set_flashdata('errors', 'Post coule not be deleted!');
+            $this->session->set_flashdata('errors', 'Category could not be deleted!');
 
-            redirect(base_url('ci-admin/posts/' . $id . '/edit')); 
+            redirect(base_url('ci-admin/categories/' . $id . '/edit')); 
         }
     }
 

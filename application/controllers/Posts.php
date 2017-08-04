@@ -35,6 +35,8 @@ class Posts extends CI_Controller {
             
             redirect(base_url('ci-admin/posts')); 
         } else {
+            $this->session->set_flashdata('errors', 'Post could not be created!');
+            
             redirect(base_url('ci-admin/posts/create')); 
         }
           
@@ -56,7 +58,7 @@ class Posts extends CI_Controller {
             
             redirect(base_url('ci-admin/posts')); 
         } else {
-            $this->session->set_flashdata('success', 'Post updated successfully!');
+            $this->session->set_flashdata('errors', 'Post could not be updated!');
 
             redirect(base_url('ci-admin/posts/' . $id . '/edit')); 
         }
@@ -71,7 +73,7 @@ class Posts extends CI_Controller {
             
             redirect(base_url('ci-admin/posts')); 
         } else {
-            $this->session->set_flashdata('errors', 'Post coule not be deleted!');
+            $this->session->set_flashdata('errors', 'Post could not be deleted!');
 
             redirect(base_url('ci-admin/posts/' . $id . '/edit')); 
         }
