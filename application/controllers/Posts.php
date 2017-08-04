@@ -24,4 +24,55 @@ class Posts extends CI_Controller {
         $this->slice->view('admin.create.post');
     }
 
+    public function store()
+    {
+        $result = $this->posts_model->create();
+
+        if($result) {
+            $this->session->set_flashdata('success', 'Post created successfully!');
+            
+            redirect(base_url('ci-admin/posts')); 
+        } else {
+            redirect(base_url('ci-admin/posts/create')); 
+        }
+          
+    }
+
+    public function edit($id)
+    {
+        $data['post'] = $this->posts_model->get_post_by_id($id);
+
+        $this->slice->view('admin.edit.post', $data);
+    }
+
+    public function update($id)
+    {
+        $result = $this->posts_model->update($id);
+
+        if($result) {
+            $this->session->set_flashdata('success', 'Post updated successfully!');
+            
+            redirect(base_url('ci-admin/posts')); 
+        } else {
+            $this->session->set_flashdata('success', 'Post updated successfully!');
+
+            redirect(base_url('ci-admin/posts/' . $id . '/edit')); 
+        }
+    }
+
+    public function destroy($id)
+    {
+        $result = $this->posts_model->destroy($id);
+
+         if($result) {
+            $this->session->set_flashdata('success', 'Post deleted successfully!');
+            
+            redirect(base_url('ci-admin/posts')); 
+        } else {
+            $this->session->set_flashdata('errors', 'Post coule not be deleted!');
+
+            redirect(base_url('ci-admin/posts/' . $id . '/edit')); 
+        }
+    }
+
 }
