@@ -17,7 +17,8 @@ class Users extends CI_Controller {
 
     public function index()
     {
-        $this->slice->view('admin.dashboard.users');
+        $data['users'] = $this->users_model->get_all();
+        $this->slice->view('admin.dashboard.users', $data);
     }
 
     public function create()

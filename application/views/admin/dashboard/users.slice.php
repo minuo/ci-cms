@@ -37,7 +37,23 @@
                 </tr>
             </thead>
             <tbody>
-                       
+                @if(count($users) > 0)
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->username }}</td>
+                            <td>{{ $user->fullname }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->type_name }}</td>
+                            @if($user->user_status == 1)
+                                <td>Active</td>
+                            @else
+                                <td>Inactive</td>
+                            @endif
+                            <td></td>
+                        </tr>
+                    @endforeach
+                @endif     
             </tbody>
         </table>
     </div>

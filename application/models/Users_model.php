@@ -5,8 +5,11 @@ class Users_model extends CI_Model {
 
     public function get_all()
     {
-        $this->db->order_by('id', 'DESC');
-        $query = $this->db->get('users');
+        $this->db->select('ut.type_name, u.*');
+        $this->db->from('users u');
+        $this->db->join('user_types ut', 'ut.id = u.user_type');
+        $this->db->order_by('u.id', 'DESC');
+        $query = $this->db->get();
 
         if($query->num_rows() > 0) {
             return $query->result();
