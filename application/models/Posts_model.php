@@ -66,7 +66,11 @@ class Posts_model extends CI_Model {
             'created_at' => date('Y-m-d H:i:s', time())
         );
 
-        $this->db->insert('posts', $data);
+        $result = $this->db->insert('posts', $data);
+
+        if($result) {
+            return true;
+        }
     }
 
     /**
@@ -83,10 +87,14 @@ class Posts_model extends CI_Model {
             'post_title' => $this->input->post('post_title'),
             'post_body' => $this->input->post('post_body'),
             'post_status' => $this->input->post('post_status'),
-            'created_at' => date('Y-m-d H:i:s', time())
+            'updated_at' => date('Y-m-d H:i:s', time())
         );
 
-        $this->db->update('posts', $data, array('id' => $id));
+        $result = $this->db->update('posts', $data, array('id' => $id));
+
+        if($result) {
+            return true;
+        }
 
     }
 
@@ -97,9 +105,9 @@ class Posts_model extends CI_Model {
 	*/
     public function delete($id)
     {
-        $query = $this->db->delete('posts', array('id' => $id));
+        $result = $this->db->delete('posts', array('id' => $id));
         
-        if($query) {
+        if($result) {
             return true;
         }
 

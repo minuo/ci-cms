@@ -16,6 +16,7 @@ class Auth_model extends CI_Model {
         if($query->num_rows() > 0) {
             if(password_verify($password, $query->row()->password)) {
                 $data = array(
+                    'id' => $query->row()->id,
                     'user_email' => $query->row()->email,
                     'user_fullname' => $query->row()->fullname,
                     'user_name' => $query->row()->username,
