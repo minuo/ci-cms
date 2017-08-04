@@ -1,3 +1,5 @@
+<p align="center"><a href="https://codeigniter.com" target="_blank"><img width="100"src="https://codeigniter.com/assets/images/ci-logo-big.png"></a></p>
+
 # Alt_K Software Solutions
 
 ### Project: CI-CMS
