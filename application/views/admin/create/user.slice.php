@@ -26,7 +26,28 @@
                 </div>
                 <!-- /.box-header -->            
                 <div class="box-body">
-                                
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="form-group">
+                            <label for="username" class="control-label">Username</label>
+                            <input type="text" name="username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="fullname" class="control-label">Fullname</label>
+                            <input type="text" name="fullname" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="control-label">Email</label>
+                            <input type="text" name="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label">Password</label>
+                            <input type="text" name="password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm_pass" class="control-label">Confirm Password</label>
+                            <input type="text" name="confirm_pass" class="form-control">
+                        </div>
+                    </div>
                 </div>
                 <!-- /.box-body -->                       
             </div>
@@ -38,15 +59,36 @@
                 <!-- Horizontal Form -->
                 <div class="box box-danger">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Roles</h3>
+                        <h3 class="box-title">Settings</h3>
                     </div>
                     <!-- /.box-header -->            
                     <div class="box-body">
-                        
-                        <label for="user_type" class="control-label">User Role</label>               
-                        <select name="user_type" class="form-control">
-                            
-                        </select>               
+
+                        <div class="col-sm-12">
+                            <label for="user_status" class="control-label">Status</label>
+                            <select name="user_status" class="form-control">
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+                            </select>
+                        </div>
+
+                        <div class="col-sm-12">
+                            @if(count($roles) > 0)
+                                <label for="user_type" class="control-label">User Role</label>               
+                                <select name="user_type" class="form-control">
+                                    @foreach($roles as $role)
+                                        <option value="{{ $role->id }}">{{ $role->type_name }}</option>
+                                    @endforeach
+                                </select>
+                            @else
+                                <div class="pad margin no-print">
+                                    <div class="callout callout-warning" style="margin-bottom: 0!important;">
+                                        <h4><i class="fa fa-info-circle"></i> Reminder:</h4>
+                                        You have not added any user roles yet, create a new one <a href="{{ base_url('ci-admin/roles/create') }}">here</a>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>   
                 
                     </div>
                     <div class="box-footer text-right">
