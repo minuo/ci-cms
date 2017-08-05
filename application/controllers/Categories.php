@@ -61,7 +61,7 @@ class Categories extends CI_Controller {
 
     public function destroy($id)
     {
-        $result = $this->categories_model->destroy($id);
+        $result = $this->categories_model->delete($id);
 
          if($result) {
             $this->session->set_flashdata('success', 'Category deleted successfully!');

@@ -23,7 +23,10 @@ class Posts extends CI_Controller {
 
     public function create() 
     {
-        $this->slice->view('admin.create.post');
+        $this->load->model('categories_model');
+        $data['categories'] = $this->categories_model->get_all();
+
+        $this->slice->view('admin.create.post', $data);
     }
 
     public function store()

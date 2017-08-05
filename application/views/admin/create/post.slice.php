@@ -53,13 +53,30 @@
                     </div>
                     <!-- /.box-header -->            
                     <div class="box-body">
-                        
+                  
+                        @if(count($categories) > 0)
+                            <label>Post Category</label>
+                            <select name="post_category" class="form-control">
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                @endforeach
+                            </select>
+                        @else
+
+                            <div class="callout callout-warning" style="margin-bottom: 0!important;">
+                                <h4><i class="fa fa-info-circle"></i> Warning:</h4>
+                                You cannot create a post without a category, make a new one <a href="{{ base_url('ci-admin/categories') }}">here</a>
+                            </div>
+  
+                        @endif
+    
                         <label for="post_status" class="control-label">Post Status</label>               
                         <select name="post_status" class="form-control">
                             <option value="draft">Draft</option>
                             <option value="pending">Pending</option>
                             <option value="published">Published</option>
-                        </select>               
+                        </select>
+                               
                 
                     </div>
                     <div class="box-footer text-right">

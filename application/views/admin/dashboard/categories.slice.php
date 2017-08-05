@@ -67,7 +67,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if(count($categories))
+                    @if(count($categories) > 0)
                         @foreach($categories as $category)
                             <td>{{ $category->id }}</td>
                             <td>{{ $category->category_name }}</td>
