@@ -65,6 +65,7 @@
                 
                     </div>
                     <div class="box-footer text-right">
+                        <a href="{{ base_url('ci-admin/pages') }}" class="btn btn-default">Cancel</a>
                         <button type="submit" class="btn btn-primary">
                             <i class="fa fa-plus"></i> Publish
                         </button>
