@@ -20,7 +20,7 @@
 
         <div class="info-box-content">
             <span class="info-box-text">Posts</span>
-            <span class="info-box-number">{{ count($posts) }}</span>
+            <span class="info-box-number">{{ $posts }}</span>
         </div>
         <!-- /.info-box-content -->
         </div>
@@ -32,7 +32,7 @@
 
         <div class="info-box-content">
             <span class="info-box-text">Comments</span>
-            <span class="info-box-number">{{ count($comments) }}</span>
+            <span class="info-box-number">{{ $comments }}</span>
         </div>
         <!-- /.info-box-content -->
         </div>
@@ -44,7 +44,7 @@
 
         <div class="info-box-content">
             <span class="info-box-text">Pages</span>
-            <span class="info-box-number">0</span>
+            <span class="info-box-number">{{ $pages }}</span>
         </div>
         <!-- /.info-box-content -->
         </div>
@@ -56,7 +56,7 @@
 
         <div class="info-box-content">
             <span class="info-box-text">Users</span>
-            <span class="info-box-number">0</span>
+            <span class="info-box-number">{{ $users }}</span>
         </div>
         <!-- /.info-box-content -->
         </div>

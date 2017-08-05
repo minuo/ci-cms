@@ -12,14 +12,17 @@ class Dashboard extends CI_Controller {
             $this->load->library('slice');
             $this->load->model('posts_model');
             $this->load->model('comments_model');
+            $this->load->model('users_model');
         }
     }
 
     public function index()
     {
         // Get all of each type
-        $data['posts'] = $this->posts_model->get_all();
-        $data['comments'] = $this->comments_model->get_all();
+        $data['posts'] = count($this->posts_model->get_all_posts());
+        $data['comments'] = count($this->comments_model->get_all());
+        $data['pages'] = count($this->posts_model->get_all_pages());
+        $data['users'] = count($this->users_model->get_all());
         
         $this->slice->view('admin.dashboard.index', $data);
     }
