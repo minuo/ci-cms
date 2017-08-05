@@ -61,14 +61,13 @@ class Posts_model extends CI_Model {
             'post_type' => $this->input->post('post_type'),
             'post_author' => $this->session->userdata('id'),
             'post_title' => $this->input->post('post_title'),
+            'post_category' => $this->input->post('post_category'),
             'post_body' => $this->input->post('post_body'),
             'post_status' => $this->input->post('post_status'),
             'created_at' => date('Y-m-d H:i:s', time())
         );
 
-        $result = $this->db->insert('posts', $data);
-
-        if($result) {
+        if( $this->db->insert('posts', $data) ) {
             return true;
         }
     }
@@ -85,14 +84,13 @@ class Posts_model extends CI_Model {
             'post_type' => $this->input->post('post_type'),
             'post_author' => $this->session->userdata('id'),
             'post_title' => $this->input->post('post_title'),
+            'post_category' => $this->input->post('post_category'),
             'post_body' => $this->input->post('post_body'),
             'post_status' => $this->input->post('post_status'),
             'updated_at' => date('Y-m-d H:i:s', time())
         );
 
-        $result = $this->db->update('posts', $data, array('id' => $id));
-
-        if($result) {
+        if( $this->db->update('posts', $data, array('id' => $id)) ) {
             return true;
         }
 
@@ -104,10 +102,8 @@ class Posts_model extends CI_Model {
 	* @param int $id The unique id of post to delete
 	*/
     public function delete($id)
-    {
-        $result = $this->db->delete('posts', array('id' => $id));
-        
-        if($result) {
+    {        
+        if( $this->db->delete('posts', array('id' => $id)) ) {
             return true;
         }
 
