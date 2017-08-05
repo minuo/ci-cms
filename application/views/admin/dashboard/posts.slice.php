@@ -42,11 +42,20 @@
                         <tr>
                             <td>{{ $post->id }}</td>
                             <td>{{ $post->post_title }}</td>
-                            <td>{{ $post->post_guid }}</td>
+                            <td>{{ $post->guid }}</td>
                             <td>{{ $post->post_category }}</td>
                             <td>{{ $post->created_at }}</td>
                             <td>{{ $post->post_status }}</td>
-                            <td></td>
+                            <td align="center">
+                                <p>
+                                    <a href="{{ base_url('ci-admin/posts/' . $post->id . '/edit') }}"  class="btn btn-primary btn-xs editBtn">
+                                        <span class="fa fa-fw fa-pencil"></span>
+                                    </a>
+                                    <a href="{{ base_url('ci-admin/posts/' . $post->id . '/delete') }}"  class="btn btn-danger btn-xs">
+                                        <span class="fa fa-fw fa-times"></span>
+                                    </a>
+                                </p>
+                            </td>
                         </tr>
                     @endforeach
                 @endif

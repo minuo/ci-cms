@@ -31,7 +31,6 @@
                         <th>#</th>
                         <th>Title</th>
                         <th>Slug</th>
-                        <th>Category</th>
                         <th>Created</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -39,7 +38,27 @@
                 </tr>
             </thead>
             <tbody>
-                       
+                 @if(count($pages))
+                    @foreach($pages as $post)
+                        <tr>
+                            <td>{{ $post->id }}</td>
+                            <td>{{ $post->post_title }}</td>
+                            <td>{{ $post->guid }}</td>
+                            <td>{{ $post->created_at }}</td>
+                            <td>{{ $post->post_status }}</td>
+                            <td align="center">
+                                <p>
+                                    <a href="{{ base_url('ci-admin/pages/' . $post->id . '/edit') }}"  class="btn btn-primary btn-xs editBtn">
+                                        <span class="fa fa-fw fa-pencil"></span>
+                                    </a>
+                                    <a href="{{ base_url('ci-admin/pages/' . $post->id . '/delete') }}"  class="btn btn-danger btn-xs">
+                                        <span class="fa fa-fw fa-times"></span>
+                                    </a>
+                                </p>
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif  
             </tbody>
         </table>
     </div>

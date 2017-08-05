@@ -7,10 +7,25 @@ class Posts_model extends CI_Model {
 	* Gets all posts in db
 	*
 	*/
-    public function get_all()
+    public function get_all_posts()
     {
         $this->db->order_by('id', 'DESC');
-        $query = $this->db->get('posts');
+        $query = $this->db->get_where('posts', array('post_type' => 'post'));
+
+        if($query->num_rows() > 0) {
+            return $query->result();
+        }
+
+    }
+
+     /**
+	* Gets all pages in db
+	*
+	*/
+    public function get_all_pages()
+    {
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get_where('posts', array('post_type' => 'page'));
 
         if($query->num_rows() > 0) {
             return $query->result();

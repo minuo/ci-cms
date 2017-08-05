@@ -16,7 +16,7 @@ class Posts extends CI_Controller {
 
     public function index()
     {
-        $data['posts'] = $this->posts_model->get_all();
+        $data['posts'] = $this->posts_model->get_all_posts();
 
         $this->slice->view('admin.dashboard.posts', $data);
     }
