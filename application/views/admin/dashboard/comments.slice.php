@@ -28,7 +28,7 @@
                 <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Post Id</th>
+                    <th>Post</th>
                     <th>Date</th>
                     <th>Status</th>
                     <th>Action</th>
