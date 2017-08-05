@@ -15,7 +15,6 @@ $route['ci-admin/posts/(:num)/delete']          = 'Posts/destroy/$1';
 
 // Dashboard Categorey Routes
 $route['ci-admin/categories']                   = 'Categories';
-$route['ci-admin/categories/create']            = 'Categories/create';
 $route['ci-admin/categories/store']             = 'Categories/store';
 $route['ci-admin/categories/(:num)/edit']       = 'Categories/edit/$1';
 $route['ci-admin/categories/(:num)/update']     = 'Categories/update/$1';
