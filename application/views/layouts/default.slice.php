@@ -31,6 +31,8 @@
     <!--Nav-->
     @include('includes.nav')
 
+    @include('includes.carousel')
+
     <!--Main Content-->
     @yield('content')
     

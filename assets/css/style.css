@@ -60,3 +60,23 @@ footer.page-footer {
         margin-bottom: 1.5rem;
     }
 }
+
+.clear-15 {
+    height: 15px;
+    width: 100%;
+}
+
+.clear-25 {
+    height: 25px;
+    width: 100%;
+}
+
+.clear-35 {
+    height: 35px;
+    width: 100%;
+}
+
+.clear-45 {
+    height: 45px;
+    width: 100%;
+}

@@ -12,7 +12,9 @@ class Base extends CI_Controller {
 
     public function index()
     {
-       
+       $data['posts'] = $this->posts_model->get_all_posts();
+
+       $this->slice->view('pages.index', $data);
     }
 
 }
