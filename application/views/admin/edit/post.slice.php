@@ -7,73 +7,106 @@
         <small>Edit</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ base_url('dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ base_url('dashboard/posts') }}">Posts</a></li>
-        <li>Edit - {{ $post->slug }}</li>
+        <li><a href="{{ base_url('ci-admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ base_url('ci-admin/posts') }}"><i class="fa fa-pencil-square-o"></i> Posts</a></li>
+        <li>Edit - {{ $post->post_title }}</li>
     </ol>
 </section>
 @endsection
 
 @section('content')
 <div class="row">
-
-    <div class="col-md-12">
-        <!-- Horizontal Form -->
-        <div class="box box-danger">
-            <div class="box-header with-border">
-                <h3 class="box-title">Edit Post</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form class="form-horizontal" action="{{ base_url('dashboard/posts/' . $post->id . '/update') }}" method="post" enctype="multipart/form-data">
+    <!-- form start -->
+    <form class="form-horizontal" action="{{ base_url('ci-admin/posts/' . $post->id . '/update') }}" method="post" enctype="multipart/form-data">
+        <div class="col-md-8">
+            <div class="box box-danger">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Edit Post</h3>
+                </div>
+                <!-- /.box-header -->            
                 <div class="box-body">
+                    <input type="hidden" name="post_type" value="post">
                     <div class="form-group">
-                        <label for="post_img" class="col-sm-2 control-label">Post Img</label>
-                        <div class="col-sm-10">
-                            <input type="file" name="post_img">
+                        <label for="post_title" class="col-sm-1 control-label">Title</label>
+                        <div class="col-sm-11">
+                            <input type="text" name="post_title" class="form-control" value="{{ $post->post_title }}" placeholder="Title">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="post_img_bg" class="col-sm-2 control-label">Header Img</label>
-                        <div class="col-sm-10">
-                            <input type="file" name="post_img_bg">
+                        <label for="post_body" class="col-sm-1 control-label">Body</label>
+                        <div class="col-sm-11">
+                            <textarea id="editor" name="post_body" class="form-control">{{ $post->post_body }}</textarea>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="title" class="col-sm-2 control-label">Title</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="title" class="form-control" value="{{ $post->title }}" placeholder="Title">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="category" class="col-sm-2 control-label">Category</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="category" class="form-control" value="{{ $post->category }}" placeholder="Category">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="tags" class="col-sm-2 control-label">Tags</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="tags" class="form-control" value="{{ $post->tags }}" placeholder="Tags">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="body" class="col-sm-2 control-label">Body</label>
-                        <div class="col-sm-10">
-                            <textarea id="editor" name="body" class="form-control">{{ $post->body }}</textarea>
-                        </div>
-                    </div>
+                    </div>                    
                 </div>
-                <!-- /.box-body -->
-                <div class="box-footer">
-                    <button type="clear" class="btn btn-default">Clear</button>
-                    <button type="submit" class="btn btn-success pull-right">Update</button>
-                </div>
-                <!-- /.box-footer -->
-            </form>
+                <!-- /.box-body -->                       
+            </div>
+            <!-- /.box -->
         </div>
-        <!-- /.box -->
-    </div>
+
+        <div class="col-md-4">
+            <div class="col-md-12 no-padding">
+                <!-- Horizontal Form -->
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Edit Post</h3>
+                    </div>
+                    <!-- /.box-header -->            
+                    <div class="box-body">
+                  
+                        @if(count($categories) > 0)
+                            <label>Post Category</label>
+                            <select name="post_category" class="form-control">
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                @endforeach
+                            </select>
+                        @else
+                            <div class="callout callout-warning" style="margin-bottom: 0!important;">
+                                <h4><i class="fa fa-info-circle"></i> Warning:</h4>
+                                You cannot create a post without a category, make a new one <a href="{{ base_url('ci-admin/categories') }}">here</a>
+                            </div>  
+                        @endif
+    
+                        <label for="post_status" class="control-label">Post Status</label>               
+                        <select name="post_status" class="form-control">
+                            <option value="draft">Draft</option>
+                            <option value="pending">Pending</option>
+                            <option value="published">Published</option>
+                        </select>
+                               
+                
+                    </div>
+                    <div class="box-footer text-right">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-refresh"></i> Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-12 no-padding">
+                <!-- Horizontal Form -->
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Featured Image</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    
+                    <div class="box-body">
+                        <div class="form-group">                        
+                            <div class="col-sm-12">
+                                <label for="featured_img">Featured Image</label>
+                                <input type="file" name="featured_img">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>   
+        </div>     
+
+    </form>
 
 </div>
 @endsection

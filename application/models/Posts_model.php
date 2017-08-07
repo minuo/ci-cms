@@ -9,8 +9,12 @@ class Posts_model extends CI_Model {
 	*/
     public function get_all_posts()
     {
+        $this->db->select('pc.category_name, p.*');
+        $this->db->from('posts p');
+        $this->db->join('post_categories pc', 'p.post_category = pc.id');
+        $this->db->where('p.post_type', 'post');
         $this->db->order_by('id', 'DESC');
-        $query = $this->db->get_where('posts', array('post_type' => 'post'));
+        $query = $this->db->get();
 
         if($query->num_rows() > 0) {
             return $query->result();

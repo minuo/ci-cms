@@ -32,7 +32,7 @@
                     <th>Slug</th>
                     <th>Category</th>
                     <th>Created</th>
-                    <th>Draft</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -43,8 +43,8 @@
                             <td>{{ $post->id }}</td>
                             <td>{{ $post->post_title }}</td>
                             <td>{{ $post->guid }}</td>
-                            <td>{{ $post->post_category }}</td>
-                            <td>{{ $post->created_at }}</td>
+                            <td>{{ $post->category_name }}</td>
+                            <td>{{  date('m-d-Y h:m: a', strtotime($post->created_at)) }}</td>
                             <td>{{ $post->post_status }}</td>
                             <td align="center">
                                 <p>

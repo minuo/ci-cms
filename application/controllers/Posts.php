@@ -48,6 +48,9 @@ class Posts extends CI_Controller {
     public function edit($id)
     {
         $data['post'] = $this->posts_model->get_post_by_id($id);
+        
+        $this->load->model('categories_model');
+        $data['categories'] = $this->categories_model->get_all();
 
         $this->slice->view('admin.edit.post', $data);
     }
