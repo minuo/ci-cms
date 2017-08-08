@@ -27,9 +27,41 @@
 
                     <div class="col-md-6 col-md-offset-3">
 
+                        @if(count($pages) > 0)
+                            <div class="form-group">
+                                <label for="home_page" class="control-label">Home Page</label>
+                                <select name="home_page" class="form-control">
+                                    @foreach($pages as $page)
+                                        <option value="{{ $page->id }}">{{ $page->post_title }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="post_page" class="control-label">Posts Page</label>
+                                <select name="posts_page" class="form-control">
+                                    @foreach($pages as $page)
+                                        <option value="{{ $page->id }}">{{ $page->post_title }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        @else
+                            <div class="pad margin no-print">
+                                <div class="callout callout-warning" style="margin-bottom: 0!important;">
+                                    <h4><i class="fa fa-info-circle"></i> Warning:</h4>
+                                    You have not created any pages yet, create a new one <a href="{{ base_url('ci-admin/pages/create') }}">here</a>
+                                </div>
+                            </div> 
+                        @endif
+
                     </div>
 
-                </div>            
+                </div>
+                <div class="box-footer text-right">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-refresh"></i> Update
+                    </button>
+                </div>           
             </div>        
         </div>
     </div>

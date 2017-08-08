@@ -10,12 +10,15 @@ class Settings extends CI_Controller {
             redirect(base_url('ci-admin'));
         } else {
             $this->load->library('slice');
+            $this->load->model('posts_model');
         }
     }
 
     public function index()
     {
-        $this->slice->view('admin.dashboard.settings');
+        $data['pages'] = $this->posts_model->get_all_pages();
+        
+        $this->slice->view('admin.dashboard.settings', $data);
     }
 
 }
