@@ -6,7 +6,11 @@
 
 @section('content')
 
-{{ $page->post_body }}
+<div class="container">
+    
+    {{ $page->post_body }}
+
+</div>
 
 <div class="clear-45"></div>
 @endsection
