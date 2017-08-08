@@ -29,8 +29,9 @@
 
                         @if(count($pages) > 0)
                             <div class="form-group">
+                                <input type="hidden" name="setting_name[]" value="home_page" />
                                 <label for="home_page" class="control-label">Home Page</label>
-                                <select name="home_page" class="form-control">
+                                <select name="setting_value[]" class="form-control">
                                     @foreach($pages as $page)
                                         <option value="{{ $page->id }}">{{ $page->post_title }}</option>
                                     @endforeach
@@ -38,8 +39,9 @@
                             </div>
 
                             <div class="form-group">
+                                <input type="hidden" name="setting_name[]" value="posts_page" />
                                 <label for="post_page" class="control-label">Posts Page</label>
-                                <select name="posts_page" class="form-control">
+                                <select name="setting_value[]" class="form-control">
                                     @foreach($pages as $page)
                                         <option value="{{ $page->id }}">{{ $page->post_title }}</option>
                                     @endforeach
