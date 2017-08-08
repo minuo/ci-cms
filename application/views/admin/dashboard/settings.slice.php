@@ -14,5 +14,24 @@
 @endsection
 
 @section('content')
+<div class="row">
+    <!-- form start -->
+    <form action="{{ base_url('ci-admin/settings/update') }}" method="post" enctype="multipart/form-data">
+        <div class="col-md-8">            
+            <div class="box box-danger">
+                <div class="box-header with-border">
+                    <h3 class="box-title">General Settings</h3>
+                </div>
+                <!-- /.box-header -->            
+                <div class="box-body">
 
+                    <div class="col-md-6 col-md-offset-3">
+
+                    </div>
+
+                </div>            
+            </div>        
+        </div>
+    </div>
+</div>
 @endsection
