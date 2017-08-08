@@ -55,6 +55,9 @@ $route['ci-admin/roles/(:num)/edit']            = 'Roles/edit/$1';
 $route['ci-admin/roles/(:num)/update']          = 'Roles/update/$1';
 $route['ci-admin/roles/(:num)/delete']          = 'Roles/destroy/$1';
 
+$route['ci-admin/settings']                     = 'Settings/index';
+$route['ci-admin/settings/update']              = 'Settings/update';
+
 // Default Routes
 $route['default_controller']                    = 'Base';
 $route['404_override']                          = '';

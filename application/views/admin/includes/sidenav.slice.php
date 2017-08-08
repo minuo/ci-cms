@@ -13,6 +13,7 @@
         <li><a href="{{ base_url('ci-admin/comments') }}"><i class="fa fa-comments"></i><span> Comments</span> @php if(isset($pending)): if(count($pending) > 0): echo '<span class="label pull-right bg-green">' . count($pending) . ' New</span>'; endif; endif; @endphp</a></li>
         <li><a href="{{ base_url('ci-admin/users') }}"><i class="fa fa-user"></i><span> Users</span></a></li>
         <li><a href="{{ base_url('ci-admin/roles') }}"><i class="fa fa-ban"></i><span> Roles</span></a></li>
+        <li><a href="{{ base_url('ci-admin/settings') }}"><i class="fa fa-gear"></i><span> Settings</span></a></li>
 
     </ul>
     
