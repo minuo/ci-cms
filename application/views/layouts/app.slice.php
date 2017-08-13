@@ -45,7 +45,7 @@
 
   </script>
 </head>
-<body class="hold-transition skin-red sidebar-mini fixed">
+<body class="hold-transition skin-red-light sidebar-mini fixed">
 <!-- Site wrapper -->
 <div class="wrapper">
 
