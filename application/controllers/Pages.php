@@ -66,7 +66,7 @@ class Pages extends CI_Controller {
 
     public function destroy($id)
     {
-        $result = $this->posts_model->destroy($id);
+        $result = $this->posts_model->delete($id);
 
          if($result) {
             $this->session->set_flashdata('success', 'Page deleted successfully!');
