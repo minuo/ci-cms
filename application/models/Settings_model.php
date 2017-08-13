@@ -19,14 +19,14 @@ class Settings_model extends CI_Model {
 
         $status = true;
 
-        foreach($setting_values as $key => $value) {
+        foreach($setting_names as $key => $value) {
 
             $data = array(
-                'setting_name' => $setting_names[$key],
-                'setting_value' => $value
+                'setting_name' => $value,
+                'setting_value' => $setting_values[$key]
             );
 
-            $query = $this->db->get_where('settings', array('setting_name' => $setting_name[$key]));
+            $query = $this->db->get_where('settings', array('setting_name' => $value));
 
             if($query->num_rows() > 0) {
                 if(!$this->db->update('settings', $data, array('id' => $query->row()->id))) {
