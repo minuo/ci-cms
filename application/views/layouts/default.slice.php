@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,24 +21,13 @@
     <!-- Template styles -->
     <link href="{{ base_url('assets/css/style.css') }}" rel="stylesheet">
 
-    @yield('page-styles')
-
 </head>
 
 <body>
 
-    <!--Nav-->
-    @include('includes.nav')
-
-    @include('includes.carousel')
-
     <!--Main Content-->
     @yield('content')
     
-    <!--Footer-->
-    @include('includes.footer')
-
-
     <!-- SCRIPTS -->
 
     <!-- JQuery -->
@@ -57,8 +45,6 @@
     <script>
         new WOW().init();
     </script>
-
-    @yield('pages-scripts')
 
 </body>
 
