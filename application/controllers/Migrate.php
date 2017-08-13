@@ -14,6 +14,12 @@ class Migrate extends CI_Controller
 		}
 	}
 
+	public function setup()
+	{
+		$this->webmster();
+		$this->add_sample_page();
+	}
+
 	public function webmaster()
 	{
 		$data = array(
@@ -25,6 +31,23 @@ class Migrate extends CI_Controller
 		);
 
 		$this->db->insert('users', $data);
+	}
+
+	public function add_sample_page()
+	{
+		$data = array(            
+            'guid' => url_title('Sample Page'),
+            'post_type' => 'page',
+            'post_author' => 1,
+            'post_title' => 'Sample Page',
+            'post_category' => 'uncategorized',
+            'post_body' => 'The Body',
+            'post_status' => 'published',
+            'created_at' => date('Y-m-d H:i:s', time())
+		);
+		
+		$this->db->insert('posts', $data);
+
 	}
 
 }

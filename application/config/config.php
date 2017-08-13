@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if(ENVIRONMENT == 'production') {
     $config['base_url'] = '';
 } else {
-    $config['base_url'] = 'http://site5.dev/';
+    $config['base_url'] = 'http://cicms.dev/';
 }
 
 /*
