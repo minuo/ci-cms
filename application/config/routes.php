@@ -38,6 +38,7 @@ $route['ci-admin/pages/(:num)/delete']          = 'Pages/destroy/$1';
 
 $route['ci-admin/media']                        = 'Media/index';
 $route['ci-admin/media/upload']                 = 'Media/upload';
+$route['ci-admin/media/delete']                 = 'Media/delete';
 
 // Dashboard Users Routes
 $route['ci-admin/users']                        = 'Users';
