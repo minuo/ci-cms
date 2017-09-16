@@ -7,7 +7,7 @@ class Files_model extends CI_Model {
     {
         $this->load->helper('file');
         if(!file_exists('./assets/media/')) {
-            mkdir('../assets/media/');
+            mkdir('./assets/media/');
         }
         $all_files = get_filenames('./assets/media/', false);
         $file_names = array();
