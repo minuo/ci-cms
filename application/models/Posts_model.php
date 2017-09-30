@@ -62,7 +62,7 @@ class Posts_model extends CI_Model {
     public function create()
     {
         $data = array(            
-            'guid' => url_title($this->input->post('post_title')),
+            'guid' => url_title($this->input->post('post_title'), 'dash', true),
             'post_type' => $this->input->post('post_type'),
             'post_author' => $this->session->userdata('id'),
             'post_title' => $this->input->post('post_title'),
@@ -72,6 +72,10 @@ class Posts_model extends CI_Model {
             'created_at' => date('Y-m-d H:i:s', time())
         );
         $this->db->insert('posts', $data);
+
+        if(!empty($_FILES)) {
+            $this->upload_img($data['guid']);
+        }
 
         return ($this->db->affected_rows() > 0) ? true : false;
     }
@@ -84,7 +88,7 @@ class Posts_model extends CI_Model {
     public function update($id)
     {
         $data = array(            
-            'guid' => url_title($this->input->post('post_title')),
+            'guid' => url_title($this->input->post('post_title'), 'dash', true),
             'post_type' => $this->input->post('post_type'),
             'post_author' => $this->session->userdata('id'),
             'post_title' => $this->input->post('post_title'),
@@ -94,6 +98,10 @@ class Posts_model extends CI_Model {
             'updated_at' => date('Y-m-d H:i:s', time())
         );
         $this->db->update('posts', $data, array('id' => $id));
+
+        if(!empty($_FILES)) {
+            $this->upload_img($data['guid']);
+        }
 
         return ($this->db->affected_rows() > 0) ? true : false;
 
@@ -109,6 +117,30 @@ class Posts_model extends CI_Model {
         $this->db->delete('posts', array('id' => $id));
 
         return ($this->db->affected_rows() > 0) ? true : false;
+    }
+
+    /**
+	* Uploads the specified blog img using the uniquely created url_title $slug
+	*
+	* @param string $slug the url_title of the post to save as image filename
+	*/
+    public function upload_img($slug)
+    {
+        // Upload Blog Img
+        $config = array(
+            'upload_path' => './uploads/',
+            'allowed_types' => 'jpg|png',
+            'file_name' => $slug . '.jpg'
+        );
+
+        $this->load->library('upload', $config);
+        if(!$this->upload->do_upload('featured_img')) {
+            $this->session->set_flashdata('errors', $this->upload->display_errors());
+        } else {
+            
+            $this->session->set_flashdata('success', 'Successfully created the post!');
+        }
+        
     }
 
 }

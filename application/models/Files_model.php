@@ -6,10 +6,10 @@ class Files_model extends CI_Model {
     public function get_all()
     {
         $this->load->helper('file');
-        if(!file_exists('./assets/media/')) {
-            mkdir('./assets/media/');
+        if(!file_exists('./uploads/')) {
+            mkdir('./uploads/');
         }
-        $all_files = get_filenames('./assets/media/', false);
+        $all_files = get_filenames('./uploads/', false);
         $file_names = array();
         foreach ($all_files as $file)
         {
@@ -22,7 +22,7 @@ class Files_model extends CI_Model {
     {
         // Upload Blog Img
         $config = array(
-            'upload_path' => './assets/media/',
+            'upload_path' => './uploads/',
             'allowed_types' => '*',
             'max_size' => '*',
             'max_filename' => '*',
@@ -41,7 +41,7 @@ class Files_model extends CI_Model {
     {
         $this->load->helper('file');
         if($this->input->post('file') != '') {
-            $result = unlink('./assets/media/' . $this->input->post('file'));
+            $result = unlink('./uploads/' . $this->input->post('file'));
             return $result;
         }
     }
