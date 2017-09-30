@@ -35,7 +35,7 @@
     @include('admin.includes.alerts')
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="{{ base_url('auth/validate') }}" method="post">
+    <form action="{{ base_url('ci-admin/auth/validate') }}" method="post">
       <div class="form-group has-feedback">
         <input type="username" name="username" class="form-control" placeholder="Username">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
