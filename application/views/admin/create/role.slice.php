@@ -104,6 +104,14 @@
                         </div>
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='publish_posts'>
+                                <input name="publish_posts" type="checkbox" value="1" class="flat-red">
+                                Publish Posts
+                            </label>
+                            <small> (Publish posts)</small>
+                        </div>
+                        <div class="form-group">                            
+                            <label>
                                 <input type='hidden' value='0' name='delete_posts'>
                                 <input name="delete_posts" type="checkbox" value="1" class="flat-red">
                                 Delete Posts

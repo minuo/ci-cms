@@ -104,6 +104,14 @@
                         </div>
                         <div class="form-group">                            
                             <label>
+                                <input type='hidden' value='0' name='publish_posts'>
+                                <input name="delete_posts" type="checkbox" value="1" class="flat-red" @php if($role->publish_posts == 1): echo 'checked'; endif; @endphp>
+                                Publish Posts
+                            </label>
+                            <small> (Publish posts)</small>
+                        </div>
+                        <div class="form-group">                            
+                            <label>
                                 <input type='hidden' value='0' name='delete_posts'>
                                 <input name="delete_posts" type="checkbox" value="1" class="flat-red" @php if($role->delete_posts == 1): echo 'checked'; endif; @endphp>
                                 Delete Posts
