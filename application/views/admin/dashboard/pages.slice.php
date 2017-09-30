@@ -38,7 +38,7 @@
                 </tr>
             </thead>
             <tbody>
-                 @if(count($posts) > 0)
+                 @if(count($pages) > 0)
                     @foreach($pages as $post)
                         <tr>
                             <td>{{ $post->id }}</td>
