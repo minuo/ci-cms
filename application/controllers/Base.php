@@ -15,7 +15,7 @@ class Base extends CI_Controller {
         $this->load->model('settings_model');
         $home_page = $this->settings_model->get_setting_by_name('home_page');
         $data['page'] = $this->posts_model->get_post_by_id($home_page->setting_value);
-        $this->slice->view('pages.index', $data);
+        $this->slice->view('default.pages.index', $data);
     }
 
 }

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('page-styles')
 <link href="{{ base_url('assets/admin/plugins/iCheck/all.css') }}" rel="stylesheet"/>
