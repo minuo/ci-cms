@@ -1,6 +1,13 @@
+@extends('default.layouts.home')
+
+@section('title')
+<title>{{ $page->post_title }} | {{ APPLICATION_NAME }}</title>
+@endsection
+
+@section('content')
 <div class="container">
     <div class="divider-new">
-        <h2 class="h2-responsive wow fadeIn">Section Title</h2>
+        <h2 class="h2-responsive wow fadeIn">Blog</h2>
     </div>
 
 
@@ -38,7 +45,8 @@
                         <!--/.Card-->
                     </div>
                 @endforeach
-
+            @else
+            {{ var_dump($posts) }}
             @endif
             
 
@@ -46,3 +54,4 @@
     </div>
 
 </div>
+@endsection

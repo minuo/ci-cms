@@ -7,12 +7,17 @@ class Posts_model extends CI_Model {
 	* Gets all posts in db
 	*
 	*/
-    public function get_all_posts()
+    public function get_all($status = null)
     {
         $this->db->select('pc.category_name, p.*');
         $this->db->from('posts p');
         $this->db->join('post_categories pc', 'p.post_category = pc.id');
         $this->db->where('p.post_type', 'post');
+
+        if($status != null) {
+            $this->db->where('p.post_status', $status);
+        }
+        
         $this->db->order_by('id', 'DESC');
         $query = $this->db->get();
 
