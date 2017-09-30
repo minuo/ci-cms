@@ -24,7 +24,7 @@
 
         <div class="clear-25"></div>
 
-        <table id="dataTable" class="table table-bordered">
+        <table id="dataTable" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>#</th>
@@ -37,15 +37,23 @@
                 </tr>
             </thead>
             <tbody>
-                @if(count($posts))
+                @if(count($posts) > 0)
                     @foreach($posts as $post)
                         <tr>
                             <td>{{ $post->id }}</td>
                             <td>{{ $post->post_title }}</td>
                             <td>{{ $post->guid }}</td>
                             <td>{{ $post->category_name }}</td>
-                            <td>{{  date('m-d-Y h:m: a', strtotime($post->created_at)) }}</td>
-                            <td>{{ $post->post_status }}</td>
+                            <td>{{ date_format(date_create($post->created_at), 'm-d-Y h:m: a') }}</td>
+
+                            @if($post->post_status == 'published')                                
+                                <td><small class="label label-success text-uppercase">{{ $post->post_status }}</small></td>
+                            @elseif($post->post_status == 'draft')
+                                <td><small class="label label-info text-uppercase">{{ $post->post_status }}</small></td>
+                            @elseif($post->post_status == 'pending')
+                                <td><small class="label label-warning text-uppercase">{{ $post->post_status }}</small></td>
+                            @endif
+                            
                             <td align="center">
                                 <p>
                                     <a href="{{ base_url('ci-admin/posts/' . $post->id . '/edit') }}"  class="btn btn-primary btn-xs editBtn">
