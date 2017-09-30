@@ -17,8 +17,7 @@ class Auth extends CI_Controller {
 
     public function validate()
     {
-        $result = $this->auth_model->auth();
-        if($result)
+        if($this->auth_model->auth())
         {
             redirect('/ci-admin/dashboard', 'location');
         } else {            
@@ -29,7 +28,7 @@ class Auth extends CI_Controller {
     public function logout()
     {
 		$this->session->sess_destroy();
-		return redirect('/');
+		return redirect(base_url());
     }
 
 }

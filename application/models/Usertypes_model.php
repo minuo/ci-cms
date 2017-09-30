@@ -25,6 +25,18 @@ class Usertypes_model extends CI_Model {
         }
     }
 
+    public function get_permissions_by_role_id($role_id) 
+    {
+        $this->db->select('up.*');
+        $this->db->from('user_permissions up');
+        $this->db->where('up.usertype_id', $role_id);
+        $query = $this->db->get();
+
+        if($query->num_rows() > 0) {
+            return $query->row();
+        }
+    }
+
     public function create()
     {
         $data = array(

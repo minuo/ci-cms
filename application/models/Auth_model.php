@@ -26,11 +26,27 @@ class Auth_model extends CI_Model {
                 $this->session->set_userdata($data);
 
                 $this->load->model('usertypes_model');
-                $permissions = $this->usertypes_model->get_role_by_id($query->row()->user_type);
-                unset($permissions->id);
-                unset($permissions->usertype_id);
-
-                $this->session->set_userdata($permissions);
+                $permissions = $this->usertypes_model->get_permissions_by_role_id($query->row()->user_type);
+                $perm_data = array(
+                    'create_usertypes' => $permissions->create_usertypes,
+                    'delete_usertypes' => $permissions->create_usertypes,
+                    'create_users' => $permissions->create_usertypes,
+                    'edit_users' => $permissions->create_usertypes,
+                    'delete_users' => $permissions->create_usertypes,
+                    'create_posts' => $permissions->create_usertypes,
+                    'edit_posts' => $permissions->create_usertypes,
+                    'publish_posts' => $permissions->create_usertypes,
+                    'delete_posts' => $permissions->create_usertypes,
+                    'upload_files' => $permissions->create_usertypes,
+                    'create_pages' => $permissions->create_usertypes,
+                    'edit_pages' => $permissions->create_usertypes,
+                    'delete_pages' => $permissions->create_usertypes,
+                    'manage_categories' => $permissions->create_usertypes,
+                    'moderate_comments' => $permissions->create_usertypes,
+                    'can_comment' => $permissions->create_usertypes,
+                    'manage_site_options' => $permissions->create_usertypes,
+                );
+                $this->session->set_userdata($perm_data);
                 
                 return true;
             } else {
