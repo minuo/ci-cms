@@ -77,7 +77,7 @@ class Posts_model extends CI_Model {
         );
         $this->db->insert('posts', $data);
 
-        if(!empty($_FILES)) {
+        if(!empty($this->input->post('featured_img'))) {
             $this->upload_img($data['guid']);
         }
 
@@ -103,7 +103,7 @@ class Posts_model extends CI_Model {
         );
         $this->db->update('posts', $data, array('id' => $id));
 
-        if(!empty($_FILES)) {
+        if(!empty($this->input->post('featured_img'))) {
             $this->upload_img($data['guid']);
         }
 
