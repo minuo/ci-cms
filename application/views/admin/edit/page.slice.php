@@ -102,12 +102,16 @@
 @section('page-scripts')
 <script src="{{ base_url('assets/admin/plugins/ckeditor/ckeditor.js') }}"></script>
 <script>
+
 $(document).ready(function() {
-    CKEDITOR.replace( 'editor',
-        {
-            height: "400px"
-        }
-    );
+
+    CKEDITOR.replace( 'editor', {
+        extraPlugins: 'docprops',
+        allowedContent: true,
+        height: "400px"        
+    });
+    
 });
+
 </script>
 @endsection
