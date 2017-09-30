@@ -6,52 +6,53 @@
 
 @section('content')
 <div class="container">
-    <div class="divider-new">
-        <h2 class="h2-responsive wow fadeIn">Blog</h2>
-    </div>
+    <!--Section: Blog v.1-->
+    <section class="section pb-3r">
 
+        <!--Section heading-->
+        <h1 class="text-center">Recent posts</h1>
+        <!--Section description-->
+        <p class="text-center">Feel free to look around, stay a while.</p>
 
-    <div class="col-lg-12">
-        <div class="row">
+        @if(count($posts) > 0)
 
-            @if(count($posts) > 0)
+            @foreach($posts as $post)
 
-                @foreach($posts as $post)
-                    <div class="col-lg-3">
-                        <!--Card-->
-                        <div class="card wow fadeIn">
+                <!--Grid row-->
+                <div class="row">
 
-                            <!--Card image-->
-                            <div class="view overlay hm-white-slight">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20(25).jpg" class="img-fluid" alt="">
-                                <a>
-                                    <div class="mask"></div>
-                                </a>
-                            </div>
-                            <!--/.Card image-->
-
-                            <!--Card content-->
-                            <div class="card-block text-center">
-                                <!--Title-->
-                                <h4 class="card-title">{{ $post->post_title }}</h4>
-                                <hr>
-                                <!--Text-->
-                                <p class="card-text">{{ substr($post->post_body, 0, 150) . '...' }}</p>
-                                <a href="" class="btn btn-primary">Read More</a>
-                            </div>
-                            <!--/.Card content-->
-
+                    <!--Grid column-->
+                    <div class="col-lg-5 ml-auto col-xl-4 pb-3">
+                        <!--Featured image-->
+                        <div class="view overlay hm-white-slight z-depth-1-half">
+                            <img src="{{ base_url('uploads/' . $post->guid . '.jpg') }}" alt="{{ $post->post_title }}" class="img-fluid">
+                            <a>
+                                <div class="mask"></div>
+                            </a>
                         </div>
-                        <!--/.Card-->
                     </div>
-                @endforeach
-            @else
-            {{ var_dump($posts) }}
-            @endif
-            
+                    <!--Grid column-->
 
-        </div>        
-    </div>
+                    <!--Grid column-->
+                    <div class="col-lg-7 mr-auto col-xl-6">
+                        <!--Excerpt-->
+                        <a href="" class="green-text"><h6 class="font-bold pb-1">{{ $post->post_category }}</h6></a>
+                        <h4 class="mb-4"><strong>{{ $post->post_title }}</strong></h4>
+                        <p>{{ substr($post->post_body, 0, 150) . '...' }}</p>
+                        <p>by <a><strong>Carine Fox</strong></a>, 19/08/2016</p>
+                        <a class="btn btn-success mb-3">Read more</a>
+                    </div>
+                    <!--Grid column-->
 
+                </div>
+                <!--Grid row-->
+
+                <hr class="hr-width mb-5 mt-5 pb-3">
+            @endforeach
+
+        @endif    
+
+    </section>
+<!--Section: Blog v.1-->
 </div>
 @endsection

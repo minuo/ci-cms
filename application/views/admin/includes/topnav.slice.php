@@ -29,7 +29,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div>
-                  <a href="{{ base_url('auth/logout') }}" class="btn btn-default btn-block btn-flat"><i class="fa fa-sign-out"></i> Sign out</a>
+                  <a href="{{ base_url('ci-admin/auth/logout') }}" class="btn btn-default btn-block btn-flat"><i class="fa fa-sign-out"></i> Sign out</a>
                 </div>
               </li>
 
