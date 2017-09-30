@@ -96,7 +96,12 @@
                     <div class="box-body">
                         <div class="form-group">                        
                             <div class="col-sm-12">
-                                <label for="featured_img">Featured Image</label>
+                                @if(file_exists('./uploads/' . $post->guid . '.jpg'))
+                                    <img src="{{ base_url('uploads/' . $post->guid . '.jpg') }}" class="img-responsive" width="100%" height="100%" />
+                                    <div class="clear-25"></div>                                
+                                @else
+                                    <label for="featured_img">Featured Image</label>
+                                @endif
                                 <input type="file" name="featured_img">
                             </div>
                         </div>
