@@ -22,7 +22,7 @@
                 <div class="row">
 
                     <!--Grid column-->
-                    <div class="col-lg-5 ml-auto col-xl-4 pb-3">
+                    <div class="col-sm-5">
                         <!--Featured image-->
                         <div class="view overlay hm-white-slight z-depth-1-half">
                             <img src="{{ base_url('uploads/' . $post->guid . '.jpg') }}" alt="{{ $post->post_title }}" class="img-fluid">
@@ -34,12 +34,12 @@
                     <!--Grid column-->
 
                     <!--Grid column-->
-                    <div class="col-lg-7 mr-auto col-xl-6">
-                        <!--Excerpt-->
-                        <a href="" class="green-text"><h6 class="font-bold pb-1">{{ $post->post_category }}</h6></a>
-                        <h4 class="mb-4"><strong>{{ $post->post_title }}</strong></h4>
+                    <div class="col-sm-7">
+                        <!--Excerpt-->                        
+                        <h4><strong>{{ $post->post_title }}</strong></h4>
+                        <a href="" class="green-text"><span class="lead">{{ $post->category_name }}</span></a>
                         <p>{{ substr($post->post_body, 0, 150) . '...' }}</p>
-                        <p>by <a><strong>Carine Fox</strong></a>, 19/08/2016</p>
+                        <p>by <a><strong>{{ $post->author_name }}</strong></a>, {{ date_format(date_create($post->created_at), 'F d, Y') }}</p>
                         <a class="btn btn-success mb-3">Read more</a>
                     </div>
                     <!--Grid column-->

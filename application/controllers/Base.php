@@ -17,13 +17,12 @@ class Base extends CI_Controller {
         $data['page'] = $this->posts_model->get_post_by_id($home_page->setting_value);
 
         if($guid == null) {
-            $data['posts'] = $this->posts_model->get_all('published');
+            $data['posts'] = $this->posts_model->get_all('published', 'post');
             $this->slice->view('default.pages.posts', $data);
         } else {
             $data['post'] = $this->posts_model->get_post_by_guid($guid);
             $this->slice->view('default.pages.single', $data);
         }
-        
         
     }
 
