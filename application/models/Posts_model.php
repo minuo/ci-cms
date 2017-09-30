@@ -34,7 +34,7 @@ class Posts_model extends CI_Model {
     {
         $this->db->select('pc.category_name, p.*, u.fullname AS author_name');
         $this->db->from('posts p');
-        $this->db->join('post_categories pc', 'p.post_category = pc.id');
+        $this->db->join('post_categories pc', 'p.post_category = pc.id', 'LEFT');
         $this->db->join('users u', 'p.post_author = u.id');
         $this->db->where('p.id', $id);
         $query = $this->db->get();
@@ -51,7 +51,7 @@ class Posts_model extends CI_Model {
     {
         $this->db->select('pc.category_name, p.*, u.fullname AS author_name');
         $this->db->from('posts p');
-        $this->db->join('post_categories pc', 'p.post_category = pc.id');
+        $this->db->join('post_categories pc', 'p.post_category = pc.id', 'LEFT');
         $this->db->join('users u', 'p.post_author = u.id');
         $this->db->where('p.guid', $guid);
         $query = $this->db->get();

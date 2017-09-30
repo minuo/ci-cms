@@ -60,7 +60,9 @@
                         <select name="post_status" class="form-control">
                             <option value="draft" @php if($page->post_status == 'draft' ): echo 'selected'; endif; @endphp>Draft</option>
                             <option value="pending" @php if($page->post_status == 'pending' ): echo 'selected'; endif; @endphp>Pending</option>
-                            <option value="published" @php if($page->post_status == 'published' ): echo 'selected'; endif; @endphp>Published</option>
+                            @if($this->session->userdata('publish_posts') || $page->post_status == 'published')
+                                <option value="published" @php if($page->post_status == 'published' ): echo 'selected'; endif; @endphp>Published</option>
+                            @endif
                         </select>               
                 
                     </div>
