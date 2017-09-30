@@ -19,9 +19,9 @@ class Dashboard extends CI_Controller {
     public function index()
     {
         // Get all of each type
-        $data['posts'] = count($this->posts_model->get_all_posts());
+        $data['posts'] = count($this->posts_model->get_all('', 'post'));
         $data['comments'] = count($this->comments_model->get_all());
-        $data['pages'] = count($this->posts_model->get_all_pages());
+        $data['pages'] = count($this->posts_model->get_all('', 'page'));
         $data['users'] = count($this->users_model->get_all());
         
         $this->slice->view('admin.dashboard.index', $data);

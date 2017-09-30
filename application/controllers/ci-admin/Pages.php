@@ -16,7 +16,7 @@ class Pages extends CI_Controller {
 
     public function index()
     {
-        $data['pages'] = $this->posts_model->get_all_pages();
+        $data['pages'] = $this->posts_model->get_all('', 'page');
         
         $this->slice->view('admin.dashboard.pages', $data);
     }

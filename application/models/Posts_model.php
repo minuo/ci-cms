@@ -7,31 +7,20 @@ class Posts_model extends CI_Model {
 	* Gets all posts in db
 	*
 	*/
-    public function get_all($status = null)
+    public function get_all($status, $type)
     {
-        $this->db->select('pc.category_name, p.*');
+        $this->db->select('pc.category_name, p.*, u.fullname AS author_name');
         $this->db->from('posts p');
-        $this->db->join('post_categories pc', 'p.post_category = pc.id');
-        $this->db->where('p.post_type', 'post');
+        $this->db->join('post_categories pc', 'p.post_category = pc.id', 'LEFT');
+        $this->db->join('users u', 'p.post_author = u.id');
+        $this->db->where('p.post_type', $type);
 
-        if($status != null) {
+        if($status != '') {
             $this->db->where('p.post_status', $status);
         }
         
         $this->db->order_by('id', 'DESC');
         $query = $this->db->get();
-
-        return ($query->num_rows() > 0) ? $query->result() : array();
-    }
-
-     /**
-	* Gets all pages in db
-	*
-	*/
-    public function get_all_pages()
-    {
-        $this->db->order_by('id', 'DESC');
-        $query = $this->db->get_where('posts', array('post_type' => 'page'));
 
         return ($query->num_rows() > 0) ? $query->result() : array();
     }
@@ -43,7 +32,12 @@ class Posts_model extends CI_Model {
 	*/
     public function get_post_by_id($id)
     {
-        $query = $this->db->get_where('posts', array('id' => $id));
+        $this->db->select('pc.category_name, p.*, u.fullname AS author_name');
+        $this->db->from('posts p');
+        $this->db->join('post_categories pc', 'p.post_category = pc.id');
+        $this->db->join('users u', 'p.post_author = u.id');
+        $this->db->where('p.id', $id);
+        $query = $this->db->get();
 
         return ($query->num_rows() > 0) ? $query->row() : new stdClass;
     }
@@ -55,7 +49,12 @@ class Posts_model extends CI_Model {
 	*/
     public function get_post_by_guid($guid)
     {
-        $query = $this->db->get_where('posts', array('guid' => $guid));
+        $this->db->select('pc.category_name, p.*, u.fullname AS author_name');
+        $this->db->from('posts p');
+        $this->db->join('post_categories pc', 'p.post_category = pc.id');
+        $this->db->join('users u', 'p.post_author = u.id');
+        $this->db->where('p.guid', $guid);
+        $query = $this->db->get();
 
         return ($query->num_rows() > 0) ? $query->row() : new stdClass;
     }
