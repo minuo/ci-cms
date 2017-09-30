@@ -58,7 +58,7 @@
                             <label>Post Category</label>
                             <select name="post_category" class="form-control">
                                 @foreach($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                    <option value="{{ $category->id }}" @php if($post->post_category == $category->id): echo 'selected'; endif; @endphp>{{ $category->category_name }}</option>
                                 @endforeach
                             </select>
                         @else
@@ -70,9 +70,9 @@
     
                         <label for="post_status" class="control-label">Post Status</label>               
                         <select name="post_status" class="form-control">
-                            <option value="draft">Draft</option>
-                            <option value="pending">Pending</option>
-                            <option value="published">Published</option>
+                            <option value="draft" @php if($post->post_status == 'draft'): echo 'selected'; endif; @endphp>Draft</option>
+                            <option value="pending" @php if($post->post_status == 'pending'): echo 'selected'; endif; @endphp>Pending</option>
+                            <option value="published" @php if($post->post_status == 'published'): echo 'selected'; endif; @endphp>Published</option>
                         </select>
                                
                 
