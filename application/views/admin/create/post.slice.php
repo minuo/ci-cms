@@ -72,7 +72,9 @@
                         <select name="post_status" class="form-control">
                             <option value="draft">Draft</option>
                             <option value="pending">Pending</option>
-                            <option value="published">Published</option>
+                            @if($this->session->userdata('publish_posts'))
+                                <option value="published">Published</option>
+                            @endif
                         </select>
                                
                 

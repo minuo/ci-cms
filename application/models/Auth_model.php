@@ -24,6 +24,13 @@ class Auth_model extends CI_Model {
                 );
 
                 $this->session->set_userdata($data);
+
+                $this->load->model('usertypes_model');
+                $permissions = $this->usertypes_model->get_role_by_id($query->row()->user_type);
+                unset($permissions->id);
+                unset($permissions->usertype_id);
+
+                $this->session->set_userdata($permissions);
                 
                 return true;
             } else {
