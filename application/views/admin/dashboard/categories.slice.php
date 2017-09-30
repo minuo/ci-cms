@@ -69,21 +69,23 @@
                 <tbody>
                     @if(count($categories) > 0)
                         @foreach($categories as $category)
-                            <td>{{ $category->id }}</td>
-                            <td>{{ $category->category_name }}</td>
-                            <td>{{ $category->category_guid }}</td>
-                            <td>{{ $category->category_description }}</td>
-                            <td>{{ $category->category_count }}</td>
-                            <td align="center">
-                                <p>
-                                    <a href="{{ base_url('ci-admin/categories/' . $category->id . '/edit') }}"  class="btn btn-primary btn-xs editBtn">
-                                        <span class="fa fa-fw fa-pencil"></span>
-                                    </a>
-                                    <a href="{{ base_url('ci-admin/categories/' . $category->id . '/delete') }}"  class="btn btn-danger btn-xs">
-                                        <span class="fa fa-fw fa-times"></span>
-                                    </a>
-                                </p>
-                            </td>
+                            <tr>
+                                <td>{{ $category->id }}</td>
+                                <td>{{ $category->category_name }}</td>
+                                <td>{{ $category->category_guid }}</td>
+                                <td>{{ $category->category_description }}</td>
+                                <td>{{ $category->category_count }}</td>
+                                <td align="center">
+                                    <p>
+                                        <a href="{{ base_url('ci-admin/categories/' . $category->id . '/edit') }}"  class="btn btn-primary btn-xs editBtn">
+                                            <span class="fa fa-fw fa-pencil"></span>
+                                        </a>
+                                        <a href="{{ base_url('ci-admin/categories/' . $category->id . '/delete') }}"  class="btn btn-danger btn-xs">
+                                            <span class="fa fa-fw fa-times"></span>
+                                        </a>
+                                    </p>
+                                </td>
+                            </tr>
                         @endforeach
                     @endif
                 </tbody>
