@@ -31,17 +31,21 @@ class Posts extends CI_Controller {
 
     public function store()
     {
-        $result = $this->posts_model->create();
-
-        if($result) {
-            $this->session->set_flashdata('success', 'Post created successfully!');
-            
-            redirect(base_url('ci-admin/posts')); 
+        if($this->input->post('post_category') != '') {
+            if($this->posts_model->create()) {
+                $this->session->set_flashdata('success', 'Post created successfully!');
+                
+                redirect(base_url('ci-admin/posts')); 
+            } else {
+                $this->session->set_flashdata('errors', 'Post could not be created!');
+                
+                redirect(base_url('ci-admin/posts/create')); 
+            }
         } else {
-            $this->session->set_flashdata('errors', 'Post could not be created!');
+            $this->session->set_flashdata('errors', 'You must create a category before you can save posts!');
             
             redirect(base_url('ci-admin/posts/create')); 
-        }
+        }        
           
     }
 

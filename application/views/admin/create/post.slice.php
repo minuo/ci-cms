@@ -62,12 +62,10 @@
                                 @endforeach
                             </select>
                         @else
-
                             <div class="callout callout-warning" style="margin-bottom: 0!important;">
                                 <h4><i class="fa fa-info-circle"></i> Warning:</h4>
                                 You cannot create a post without a category, make a new one <a href="{{ base_url('ci-admin/categories') }}">here</a>
-                            </div>
-  
+                            </div>  
                         @endif
     
                         <label for="post_status" class="control-label">Post Status</label>               
@@ -81,7 +79,7 @@
                     </div>
                     <div class="box-footer text-right">
                         <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-plus"></i> Publish
+                            <i class="fa fa-plus"></i> Publish                            
                         </button>
                     </div>
                 </div>

@@ -16,10 +16,7 @@ class Posts_model extends CI_Model {
         $this->db->order_by('id', 'DESC');
         $query = $this->db->get();
 
-        if($query->num_rows() > 0) {
-            return $query->result();
-        }
-
+        return ($query->num_rows() > 0) ? $query->result() : array();
     }
 
      /**
@@ -31,10 +28,7 @@ class Posts_model extends CI_Model {
         $this->db->order_by('id', 'DESC');
         $query = $this->db->get_where('posts', array('post_type' => 'page'));
 
-        if($query->num_rows() > 0) {
-            return $query->result();
-        }
-
+        return ($query->num_rows() > 0) ? $query->result() : array();
     }
 
     /**
@@ -46,11 +40,7 @@ class Posts_model extends CI_Model {
     {
         $query = $this->db->get_where('posts', array('id' => $id));
 
-        if($query->num_rows() > 0)
-        {
-            return $query->row();
-        }
-
+        return ($query->num_rows() > 0) ? $query->row() : new stdClass;
     }
 
     /**
@@ -62,11 +52,7 @@ class Posts_model extends CI_Model {
     {
         $query = $this->db->get_where('posts', array('guid' => $guid));
 
-        if($query->num_rows() > 0)
-        {
-            return $query->row();
-        }
-
+        return ($query->num_rows() > 0) ? $query->row() : new stdClass;
     }
 
     /**
@@ -85,10 +71,9 @@ class Posts_model extends CI_Model {
             'post_status' => $this->input->post('post_status'),
             'created_at' => date('Y-m-d H:i:s', time())
         );
+        $this->db->insert('posts', $data);
 
-        if( $this->db->insert('posts', $data) ) {
-            return true;
-        }
+        return ($this->db->affected_rows() > 0) ? true : false;
     }
 
     /**
@@ -108,10 +93,9 @@ class Posts_model extends CI_Model {
             'post_status' => $this->input->post('post_status'),
             'updated_at' => date('Y-m-d H:i:s', time())
         );
+        $this->db->update('posts', $data, array('id' => $id));
 
-        if( $this->db->update('posts', $data, array('id' => $id)) ) {
-            return true;
-        }
+        return ($this->db->affected_rows() > 0) ? true : false;
 
     }
 
@@ -122,10 +106,9 @@ class Posts_model extends CI_Model {
 	*/
     public function delete($id)
     {        
-        if( $this->db->delete('posts', array('id' => $id)) ) {
-            return true;
-        }
+        $this->db->delete('posts', array('id' => $id));
 
+        return ($this->db->affected_rows() > 0) ? true : false;
     }
 
 }
