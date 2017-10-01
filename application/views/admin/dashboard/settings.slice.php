@@ -33,7 +33,7 @@
                                 <label for="home_page" class="control-label">Home Page</label>
                                 <select name="setting_value[]" class="form-control">
                                     @foreach($pages as $page)
-                                        <option value="{{ $page->id }}">{{ $page->post_title }}</option>
+                                        <option value="{{ $page->id }}" @php if($settings['home_page']->setting_value == $page->id): echo 'selected'; endif; @endphp>{{ $page->post_title }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -43,7 +43,7 @@
                                 <label for="post_page" class="control-label">Posts Page</label>
                                 <select name="setting_value[]" class="form-control">
                                     @foreach($pages as $page)
-                                        <option value="{{ $page->id }}">{{ $page->post_title }}</option>
+                                        <option value="{{ $page->id }}" @php if($settings['posts_page']->setting_value == $page->id): echo 'selected'; endif; @endphp>{{ $page->post_title }}</option>
                                     @endforeach
                                 </select>
                             </div>

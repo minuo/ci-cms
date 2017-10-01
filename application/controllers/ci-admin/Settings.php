@@ -17,7 +17,11 @@ class Settings extends CI_Controller {
 
     public function index()
     {
-        $data['pages'] = $this->posts_model->get_all_pages();
+        $data['pages'] = $this->posts_model->get_all('', 'page');
+        $data['settings'] = array(
+            'home_page' => $this->settings_model->get_setting_by_name('home_page'),
+            'posts_page' => $this->settings_model->get_setting_by_name('posts_page')
+        );
 
         $this->slice->view('admin.dashboard.settings', $data);
     }

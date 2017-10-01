@@ -39,10 +39,15 @@ class Base extends CI_Controller {
 
         if($guid != null) {
             $data['post'] = $this->posts_model->get_post_by_guid($guid, 'page');
-            $this->slice->view('default.pages.single', $data);
+
+            if(!empty($data['post'])) {
+                $this->slice->view('default.pages.single', $data);
+            } else {
+                return redirect(base_url());
+            }         
         } else {
             return redirect(base_url());
-        }
+        }        
     }
 
 }

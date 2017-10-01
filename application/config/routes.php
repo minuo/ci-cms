@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 *   Posts Routes
 */
 $route['posts/(:any)']                          = 'Base/posts/$1';
+$route['posts']                                 = 'Base/posts';
 
 /*
 *   Pages Routes
