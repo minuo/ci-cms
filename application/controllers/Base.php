@@ -10,6 +10,10 @@ class Base extends CI_Controller {
         $this->load->model('posts_model');
     }
 
+    /**
+	* Index function for home page
+	*
+	*/
     public function index()
     {
         $data['pages'] = $this->posts_model->get_all('published', 'page');
@@ -20,13 +24,23 @@ class Base extends CI_Controller {
         $this->slice->view('default.pages.single', $data);
     }
 
-    public function is_category($guid) 
+    /**
+    * Checks if a specific $guid is a category
+    *@param string $guid the unigue category_guid
+    *@return boolean
+	*/
+    public function is_category($guid)
     {
         $this->load->model('categories_model');
 
         return ($this->categories_model->get_category_by_guid($guid)) ? true : false;
     }
 
+    /**
+    * Checks if a specific $guid is an author
+    *@param string $guid the unigue username
+    *@return boolean
+	*/
     public function is_author($guid) 
     {
         $this->load->model('users_model');
@@ -34,6 +48,10 @@ class Base extends CI_Controller {
         return ($this->users_model->get_user_by_username($guid)) ? true : false;
     }
 
+    /**
+    * Gets all posts
+    *@param string $guid optional guid for filtering posts
+	*/
     public function posts($guid = null)
     {
         $data['pages'] = $this->posts_model->get_all('published', 'page');
@@ -68,6 +86,10 @@ class Base extends CI_Controller {
         
     }
 
+    /**
+    * Gets a spefific page
+    *@param string $guid the unigue guid of a page to get
+	*/
     public function pages($guid = null)
     {
         $data['pages'] = $this->posts_model->get_all('published', 'page');
