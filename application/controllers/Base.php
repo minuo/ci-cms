@@ -18,7 +18,7 @@ class Base extends CI_Controller {
 
         if($guid == null) {
             $data['posts'] = $this->posts_model->get_all('published', 'post');
-            $this->slice->view('default.pages.posts', $data);
+            $this->slice->view('default.pages.index', $data);
         } else {
             $data['post'] = $this->posts_model->get_post_by_guid($guid);
             $this->slice->view('default.pages.single', $data);
