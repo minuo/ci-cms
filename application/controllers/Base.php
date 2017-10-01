@@ -29,7 +29,12 @@ class Base extends CI_Controller {
             $this->slice->view('default.pages.index', $data);
         } else {
             $data['post'] = $this->posts_model->get_post_by_guid($guid, 'post');
-            $this->slice->view('default.pages.single', $data);
+
+            if($data['post']) {
+                $this->slice->view('default.pages.single', $data);
+            } else {
+                return redirect(base_url());
+            }      
         }
     }
 
@@ -40,7 +45,7 @@ class Base extends CI_Controller {
         if($guid != null) {
             $data['post'] = $this->posts_model->get_post_by_guid($guid, 'page');
 
-            if(!empty($data['post'])) {
+            if($data['post']) {
                 $this->slice->view('default.pages.single', $data);
             } else {
                 return redirect(base_url());

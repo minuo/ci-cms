@@ -39,7 +39,7 @@ class Posts_model extends CI_Model {
         $this->db->where('p.id', $id);
         $query = $this->db->get();
 
-        return ($query->num_rows() > 0) ? $query->row() : new stdClass;
+        return ($query->num_rows() > 0) ? $query->row() : false;
     }
 
     /**
@@ -57,7 +57,7 @@ class Posts_model extends CI_Model {
         $this->db->where('p.post_type', $type);
         $query = $this->db->get();
 
-        return ($query->num_rows() > 0) ? $query->row() : new stdClass;
+        return ($query->num_rows() > 0) ? $query->row() : false;
     }
 
     /**
