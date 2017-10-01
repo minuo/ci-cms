@@ -47,13 +47,14 @@ class Posts_model extends CI_Model {
 	*
 	* @param string $slug The unique slug of post to retrieve
 	*/
-    public function get_post_by_guid($guid)
+    public function get_post_by_guid($guid, $type)
     {
         $this->db->select('pc.category_name, p.*, u.fullname AS author_name');
         $this->db->from('posts p');
         $this->db->join('post_categories pc', 'p.post_category = pc.id', 'LEFT');
         $this->db->join('users u', 'p.post_author = u.id');
         $this->db->where('p.guid', $guid);
+        $this->db->where('p.post_type', $type);
         $query = $this->db->get();
 
         return ($query->num_rows() > 0) ? $query->row() : new stdClass;
@@ -77,7 +78,7 @@ class Posts_model extends CI_Model {
         );
         $this->db->insert('posts', $data);
 
-        if(!empty($this->input->post('featured_img'))) {
+        if(!empty($_FILES['featured_img']['tmp_name'])) {
             $this->upload_img($data['guid']);
         }
 
@@ -103,7 +104,7 @@ class Posts_model extends CI_Model {
         );
         $this->db->update('posts', $data, array('id' => $id));
 
-        if(!empty($this->input->post('featured_img'))) {
+        if(!empty($_FILES['featured_img']['tmp_name'])) {
             $this->upload_img($data['guid']);
         }
 
@@ -134,17 +135,20 @@ class Posts_model extends CI_Model {
         $config = array(
             'upload_path' => './uploads/',
             'allowed_types' => 'jpg|png',
-            'file_name' => $slug . '.jpg'
+            'file_name' => $slug . '.jpg',
+            'overwrite' => true
         );
+
+        if(file_exists('./uploads/' . $slug . '.jpg')) {
+            unlink('./uploads/' . $slug . '.jpg');
+        }
 
         $this->load->library('upload', $config);
         if(!$this->upload->do_upload('featured_img')) {
             $this->session->set_flashdata('errors', $this->upload->display_errors());
         } else {
-            
             $this->session->set_flashdata('success', 'Successfully created the post!');
-        }
-        
+        }            
     }
 
 }

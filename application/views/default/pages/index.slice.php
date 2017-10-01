@@ -1,7 +1,7 @@
 @extends('default.layouts.home')
 
 @section('title')
-Clean Blog - Start Bootstrap Theme
+{{ APPLICATION_NAME }}
 @endsection
 
 @section('header')
