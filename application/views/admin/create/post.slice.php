@@ -33,6 +33,12 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="post_excerpt" class="col-sm-1 control-label">Excerpt</label>
+                        <div class="col-sm-11">
+                            <input type="text" name="post_excerpt" class="form-control" id="" placeholder="Excerpt">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="post_body" class="col-sm-1 control-label">Body</label>
                         <div class="col-sm-11">
                             <textarea id="editor" name="post_body" class="form-control"></textarea>

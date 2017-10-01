@@ -34,7 +34,7 @@
                             <a href="{{ base_url('posts/' . $post->guid ) }}">
                                 <h2 class="post-title">{{ $post->post_title }}</h2>                                
                             </a>
-                            <p class="post-subtitle">{{ substr($post->post_body, 0, 150) . '...' }}</p>
+                            <p class="post-subtitle">{{ $post->post_excerpt }}</p>
                             <p class="post-meta">Posted by <a href="#">{{ $post->author_name }}</a> in <a href="#">{{ $post->category_name }}</a> on {{ date_format(date_create($post->created_at), 'F d, Y') }}</p>
                         </div>              
                     </div>
