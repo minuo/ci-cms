@@ -10,11 +10,19 @@ class Base extends CI_Controller {
         $this->load->model('posts_model');
     }
 
-    public function index($guid = null)
+    public function index()
     {
-        // $this->load->model('settings_model');
-        // $home_page = $this->settings_model->get_setting_by_name('home_page');
-        // $data['page'] = $this->posts_model->get_post_by_id($home_page->setting_value);
+        $data['pages'] = $this->posts_model->get_all('published', 'page');
+
+        $this->load->model('settings_model');
+        $home_page = $this->settings_model->get_setting_by_name('home_page');
+        $data['post'] = $this->posts_model->get_post_by_id($home_page->setting_value);
+        $this->slice->view('default.pages.single', $data);
+    }
+
+    public function posts($guid = null)
+    {
+        $data['pages'] = $this->posts_model->get_all('published', 'page');
 
         if($guid == null) {
             $data['posts'] = $this->posts_model->get_all('published', 'post');
@@ -23,7 +31,18 @@ class Base extends CI_Controller {
             $data['post'] = $this->posts_model->get_post_by_guid($guid, 'post');
             $this->slice->view('default.pages.single', $data);
         }
-        
+    }
+
+    public function pages($guid = null)
+    {
+        $data['pages'] = $this->posts_model->get_all('published', 'page');
+
+        if($guid != null) {
+            $data['post'] = $this->posts_model->get_post_by_guid($guid, 'page');
+            $this->slice->view('default.pages.single', $data);
+        } else {
+            return redirect(base_url());
+        }
     }
 
 }

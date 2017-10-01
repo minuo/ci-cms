@@ -4,7 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*
 *   Posts Routes
 */
-$route['posts/(:any)']                          = 'Base/index/$1';
+$route['posts/(:any)']                          = 'Base/posts/$1';
+
+/*
+*   Pages Routes
+*/
+$route['pages/(:any)']                          = 'Base/pages/$1';
 
 // Main Dashboard Routes
 $route['ci-admin']                              = 'ci-admin/Auth/login';
