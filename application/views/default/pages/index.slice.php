@@ -12,7 +12,7 @@
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="site-heading">
                     <h1>{{ $page->post_title }}</h1>
-                    <span class="subheading">{{ $page->post_excerpt }}</span>
+                    <span class="subheading">{{ $page->post_body }}</span>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                                 <h2 class="post-title">{{ $post->post_title }}</h2>                                
                             </a>
                             <p class="post-subtitle">{{ $post->post_excerpt }}</p>
-                            <p class="post-meta">Posted by <a href="#">{{ $post->author_name }}</a> in <a href="#">{{ $post->category_name }}</a> on {{ date_format(date_create($post->created_at), 'F d, Y') }}</p>
+                            <p class="post-meta">Posted by <a href="{{ base_url('posts/' . $post->author_name ) }}">{{ $post->author_name }}</a> in <a href="{{ base_url('posts/' . $post->category_guid ) }}">{{ $post->category_name }}</a> on {{ date_format(date_create($post->created_at), 'F d, Y') }}</p>
                         </div>              
                     </div>
                     <hr>

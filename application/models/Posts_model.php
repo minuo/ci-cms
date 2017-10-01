@@ -9,7 +9,7 @@ class Posts_model extends CI_Model {
 	*/
     public function get_all($status, $type)
     {
-        $this->db->select('pc.category_name, p.*, u.fullname AS author_name');
+        $this->db->select('pc.category_name, pc.category_guid, p.*, u.fullname AS author_name');
         $this->db->from('posts p');
         $this->db->join('post_categories pc', 'p.post_category = pc.id', 'LEFT');
         $this->db->join('users u', 'p.post_author = u.id');
@@ -26,13 +26,51 @@ class Posts_model extends CI_Model {
     }
 
     /**
+	* Gets all posts in db by category name
+	*
+	*/
+    public function get_all_by_category($category_name)
+    {
+        $this->db->select('pc.category_name, pc.category_guid, p.*, u.fullname AS author_name');
+        $this->db->from('posts p');
+        $this->db->join('post_categories pc', 'p.post_category = pc.id', 'LEFT');
+        $this->db->join('users u', 'p.post_author = u.id');
+        $this->db->where('p.post_type', 'post');
+        $this->db->where('pc.category_guid', $category_name);
+        $this->db->where('p.post_status', 'published');
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get();
+
+        return ($query->num_rows() > 0) ? $query->result() : array();
+    }
+
+    /**
+	* Gets all posts in db by author
+	*
+	*/
+    public function get_all_by_author($author)
+    {
+        $this->db->select('pc.category_name, pc.category_guid, p.*, u.fullname AS author_name');
+        $this->db->from('posts p');
+        $this->db->join('post_categories pc', 'p.post_category = pc.id', 'LEFT');
+        $this->db->join('users u', 'p.post_author = u.id');
+        $this->db->where('p.post_type', 'post');
+        $this->db->where('u.username', $author);
+        $this->db->where('p.post_status', 'published');
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get();
+
+        return ($query->num_rows() > 0) ? $query->result() : array();
+    }
+
+    /**
 	* Gets the specified post using posts unique $id
 	*
 	* @param int $id The unique id of post to retrieve
 	*/
     public function get_post_by_id($id)
     {
-        $this->db->select('pc.category_name, p.*, u.fullname AS author_name');
+        $this->db->select('pc.category_name, pc.category_guid, p.*, u.fullname AS author_name');
         $this->db->from('posts p');
         $this->db->join('post_categories pc', 'p.post_category = pc.id', 'LEFT');
         $this->db->join('users u', 'p.post_author = u.id');
@@ -49,7 +87,7 @@ class Posts_model extends CI_Model {
 	*/
     public function get_post_by_guid($guid, $type)
     {
-        $this->db->select('pc.category_name, p.*, u.fullname AS author_name');
+        $this->db->select('pc.category_name, pc.category_guid, p.*, u.fullname AS author_name');
         $this->db->from('posts p');
         $this->db->join('post_categories pc', 'p.post_category = pc.id', 'LEFT');
         $this->db->join('users u', 'p.post_author = u.id');

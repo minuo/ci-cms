@@ -12,10 +12,7 @@ class Categories_model extends CI_Model {
         $this->db->order_by('id', 'DESC');
         $query = $this->db->get('post_categories');
 
-        if($query->num_rows() > 0) {
-            return $query->result();
-        }
-
+        return ($query->num_rows() > 0) ? $query->result() : array();
     }
 
     /**
@@ -27,11 +24,19 @@ class Categories_model extends CI_Model {
     {
         $query = $this->db->get_where('post_categories', array('id' => $id));
 
-        if($query->num_rows() > 0)
-        {
-            return $query->row();
-        }
+        return ($query->num_rows() > 0) ? $query->row() : false;
+    }
 
+    /**
+	* Gets the specified post category using post_categories unique $guid
+	*
+	* @param int $id The unique guid of post category to retrieve
+	*/
+    public function get_category_by_guid($guid)
+    {
+        $query = $this->db->get_where('post_categories', array('category_guid' => $guid));
+
+        return ($query->num_rows() > 0) ? $query->row() : false;
     }
 
     /**
