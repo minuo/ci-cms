@@ -8,14 +8,14 @@
 <!-- Page Header -->
 <header class="masthead" style="background-image: url('{{ base_url('assets/default/img/home-bg.jpg') }}')">
     <div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="site-heading">
-            <h1>Clean Blog</h1>
-            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>{{ $page->post_title }}</h1>
+                    <span class="subheading">{{ $page->post_excerpt }}</span>
+                </div>
+            </div>
         </div>
-        </div>
-    </div>
     </div>
 </header>
 @endsection

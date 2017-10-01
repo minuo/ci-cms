@@ -25,6 +25,10 @@ class Base extends CI_Controller {
         $data['pages'] = $this->posts_model->get_all('published', 'page');
 
         if($guid == null) {
+            $this->load->model('settings_model');
+            $posts_page = $this->settings_model->get_setting_by_name('posts_page');
+            $data['page'] = $this->posts_model->get_post_by_id($posts_page->setting_value);
+
             $data['posts'] = $this->posts_model->get_all('published', 'post');
             $this->slice->view('default.pages.index', $data);
         } else {
