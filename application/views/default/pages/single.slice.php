@@ -11,8 +11,10 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="post-heading">
-                    <h1>{{ $post->post_title }}</h1>                    
-                    <span class="meta">Posted by <a href="#">{{ $post->author_name }}</a> in <a href="">{{ $post->category_name }}</a> on {{ date_format(date_create($post->created_at), 'F d, Y') }}</span>
+                    <h1>{{ $post->post_title }}</h1>
+                    @if($post->post_type == 'post')                
+                        <span class="meta">Posted by <a href="#">{{ $post->author_name }}</a> in <a href="">{{ $post->category_name }}</a> on {{ date_format(date_create($post->created_at), 'F d, Y') }}</span>
+                    @endif
                 </div>
             </div>
         </div>

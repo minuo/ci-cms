@@ -9,10 +9,20 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
             @if(count($pages) > 0)
+                @php
+                    $this->load->model('settings_model');
+                    $home_page = $this->settings_model->get_setting_by_name('home_page');
+                @endphp
                 @foreach($pages as $page)
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ base_url('pages/' . $page->guid) }}">{{ $page->post_title }}</a>
-                    </li>                    
+                    @if($page->id != $home_page->setting_value)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ base_url('pages/' . $page->guid) }}">{{ $page->post_title }}</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ base_url() }}">{{ $page->post_title }}</a>
+                        </li>
+                    @endif                   
                 @endforeach
             @endif
         </ul>
