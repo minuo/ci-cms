@@ -24,65 +24,28 @@ Clean Blog - Start Bootstrap Theme
 <!-- Main Content -->
 <div class="container">
     <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="post-preview">
-        <a href="post.html">
-            <h2 class="post-title">
-            Man must explore, and this is exploration at its greatest
-            </h2>
-            <h3 class="post-subtitle">
-            Problems look mighty small from 150 miles up
-            </h3>
-        </a>
-        <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
-            on September 24, 2017</p>
+        <div class="col-lg-8 col-md-10 mx-auto">
+            @if(count($posts) > 0)
+                @foreach($posts as $post)
+                    <div class="col-sm-12">                      
+                        <img src="{{ base_url('uploads/' . $post->guid . '.jpg') }}" class="img-responsive" width="100%" height="100%" />
+                    
+                        <div class="post-preview">
+                            <a href="{{ base_url('posts/' . $post->guid ) }}">
+                                <h2 class="post-title">{{ $post->post_title }}</h2>
+                                <h3 class="post-subtitle">{{ substr($post->post_body, 0, 150) . '...' }}</h3>
+                            </a>
+                            <p class="post-meta">Posted by <a href="#">{{ $post->author_name }}</a> in <a href="#">{{ $post->category_name }}</a> on {{ date_format(date_create($post->created_at), 'F d, Y') }}</p>
+                        </div>              
+                    </div>
+                    <hr>
+                @endforeach
+            @endif
+            <!-- Pager -->
+            <div class="clearfix">
+                <a class="btn btn-secondary float-right" href="#">Older Posts &rarr;</a>
+            </div>
         </div>
-        <hr>
-        <div class="post-preview">
-        <a href="post.html">
-            <h2 class="post-title">
-            I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-            </h2>
-        </a>
-        <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
-            on September 18, 2017</p>
-        </div>
-        <hr>
-        <div class="post-preview">
-        <a href="post.html">
-            <h2 class="post-title">
-            Science has not yet mastered prophecy
-            </h2>
-            <h3 class="post-subtitle">
-            We predict too much for the next year and yet far too little for the next ten.
-            </h3>
-        </a>
-        <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
-            on August 24, 2017</p>
-        </div>
-        <hr>
-        <div class="post-preview">
-        <a href="post.html">
-            <h2 class="post-title">
-            Failure is not an option
-            </h2>
-            <h3 class="post-subtitle">
-            Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-            </h3>
-        </a>
-        <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
-            on July 8, 2017</p>
-        </div>
-        <hr>
-        <!-- Pager -->
-        <div class="clearfix">
-        <a class="btn btn-secondary float-right" href="#">Older Posts &rarr;</a>
-        </div>
-    </div>
     </div>
 </div>
 @endsection
