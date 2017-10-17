@@ -29,7 +29,7 @@
                 </a>
               </li>
             </ul>
-            <p class="copyright text-muted">Copyright &copy; Your Website 2017</p>
+            <p class="copyright text-muted">&copy; {{ APPLICATION_NAME }} {{ date('Y') }}. All Rights Reserved</p>
           </div>
         </div>
       </div>
