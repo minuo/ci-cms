@@ -13,7 +13,7 @@
                 <div class="post-heading">
                     <h1>{{ $post->post_title }}</h1>
                     @if($post->post_type == 'post')                
-                        <span class="meta">Posted by <a href="#">{{ $post->author_name }}</a> in <a href="">{{ $post->category_name }}</a> on {{ date_format(date_create($post->created_at), 'F d, Y') }}</span>
+                        <span class="meta">Posted by <a href="{{ base_url('posts/' . $post->author_name ) }}">{{ $post->author_name }}</a> in <a href="{{ base_url('posts/' . $post->category_name ) }}">{{ $post->category_name }}</a> on {{ date_format(date_create($post->created_at), 'F d, Y') }}</span>
                     @endif
                 </div>
             </div>
