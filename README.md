@@ -10,11 +10,11 @@ Built upon the Codeigniter Framework, it will allow for easy, out of the box CMS
 pages, content, posts, users, and other features to come.
 
 ## Bugs ##
-If you find an issue, let us know [here](https://gitlab.com/mkhimself/ci-cms/issues/new)!
+If you find an issue, let us know [here](https://github.com/itzJustKranker/ci-cms/issues/new)!
 
 There are various ways you can contribute:
 
-1. Raise an [Issue](https://gitlab.com/mkhimself/ci-cms/issues) on Gitlab
+1. Raise an [Issue](https://github.com/itzJustKranker/ci-cms/issues) on GitHub
 2. Send us a Pull Request with your bug fixes and/or new features
 
 \* This is a work in progress applicaton and is not ready for full release. If you would like to contribute 
